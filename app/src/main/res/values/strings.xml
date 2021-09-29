@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Jetmagic</string>
+    <string name="connection_failed">Connection Failed. Please check your network connection and try again.</string>
+    <string name="loading">Loading</string>
+    <string name="gender">Gender</string>
+    <string name="born">Born</string>
+    <string name="color">Color</string>
+    <string name="type">Type</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="adopt">Adopt</string>
+</resources>
