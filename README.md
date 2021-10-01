@@ -1,4 +1,7 @@
-# <img src="../../blob/main/images/app_icon_192x192.png" width="70" height="70" /> Jetmagic - A framework for building responsive Android apps using Jetpack Compose
+<p align="center">
+    <img src="../../blob/main/images/jetmagic-840x500.jpg" width="840" height="500" />
+</p>
+#  Jetmagic - A framework for building responsive Android apps using Jetpack Compose
 
 Jetmagic is an Android framework that can be used to develop responsive Android apps that are built using Jetpack Compose. It provides features beyond those offered by Android's own Jetpack Compose framework. Jetmagic's primary purpose is to provide infrastructure needed to manage composables while letting you focus on building your app's core business objective. The framework consists of the following components:<br /><br />
 
