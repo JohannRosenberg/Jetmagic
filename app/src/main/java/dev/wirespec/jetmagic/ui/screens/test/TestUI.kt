@@ -1,7 +1,5 @@
 package dev.wirespec.jetmagic.ui.screens.test
 
-import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -14,7 +12,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil.annotation.ExperimentalCoilApi
 import dev.wirespec.jetmagic.App
 import dev.wirespec.jetmagic.models.ComposableInstance
 import dev.wirespec.jetmagic.models.ComposableParams
@@ -25,11 +22,6 @@ import dev.wirespec.jetmagic.ui.screens.ScreenGlobals
 import dev.wirespec.jetmagic.ui.theme.AppColors
 import dev.wirespec.jetmagic.ui.theme.AppTheme
 
-
-@ExperimentalCoilApi
-@ExperimentalFoundationApi
-@ExperimentalAnimationApi
-@ExperimentalMaterialApi
 @Composable
 fun TestHandler(composableInstance: ComposableInstance) {
 
@@ -48,10 +40,6 @@ fun TestHandler(composableInstance: ComposableInstance) {
         })
 }
 
-@ExperimentalCoilApi
-@ExperimentalFoundationApi
-@ExperimentalAnimationApi
-@ExperimentalMaterialApi
 @Composable
 fun Test(
     screenId: Int,

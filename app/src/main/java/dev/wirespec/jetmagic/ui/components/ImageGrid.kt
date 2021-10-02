@@ -1,12 +1,9 @@
 package dev.wirespec.jetmagic.ui.components
 
-import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.layout.requiredWidth
-import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.Layout
@@ -22,10 +19,6 @@ import dev.wirespec.jetmagic.utils.DeviceUtils.Companion.px2dp
  * displayed is adaptive while the size of grid items is fixed with a smaller size used on
  * phones and a larger size used on tablets.
  */
-
-@ExperimentalFoundationApi
-@ExperimentalMaterialApi
-@ExperimentalAnimationApi
 @Composable
 fun <T> ImageGrid(
     modifier: Modifier = Modifier,

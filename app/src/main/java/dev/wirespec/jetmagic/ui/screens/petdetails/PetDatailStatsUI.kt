@@ -1,11 +1,8 @@
 package dev.wirespec.jetmagic.ui.screens.petdetails
 
-import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -20,10 +17,6 @@ import dev.wirespec.jetmagic.ui.components.DetailProperty
 import dev.wirespec.jetmagic.ui.components.MultiLineText
 import dev.wirespec.jetmagic.ui.theme.AppTheme
 
-
-@ExperimentalFoundationApi
-@ExperimentalAnimationApi
-@ExperimentalMaterialApi
 @Composable
 fun PetDetailStatsUI(
     pet: PetListItemInfo,

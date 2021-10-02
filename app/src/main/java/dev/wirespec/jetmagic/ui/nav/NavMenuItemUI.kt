@@ -1,14 +1,11 @@
 package dev.wirespec.jetmagic.ui.nav
 
-import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.indication
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.ripple.LocalRippleTheme
@@ -24,10 +21,6 @@ import androidx.compose.ui.unit.dp
 import dev.wirespec.jetmagic.ui.theme.AppColors
 import dev.wirespec.jetmagic.ui.theme.AppTheme
 
-
-@ExperimentalFoundationApi
-@ExperimentalAnimationApi
-@ExperimentalMaterialApi
 @Composable
 fun NavMenuItem(
     menuId: String,

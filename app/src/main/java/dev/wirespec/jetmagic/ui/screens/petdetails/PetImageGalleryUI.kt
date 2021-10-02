@@ -1,16 +1,12 @@
 package dev.wirespec.jetmagic.ui.screens.petdetails
 
-import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import coil.annotation.ExperimentalCoilApi
 import coil.compose.LocalImageLoader
 import coil.compose.rememberImagePainter
 import dev.wirespec.jetmagic.composables.IImageManager
@@ -21,10 +17,6 @@ import dev.wirespec.jetmagic.models.LocalComposableInstance
 import dev.wirespec.jetmagic.models.PetListItemInfo
 import dev.wirespec.jetmagic.utils.DeviceUtils
 
-@ExperimentalAnimationApi
-@ExperimentalCoilApi
-@ExperimentalFoundationApi
-@ExperimentalMaterialApi
 @Composable
 fun PetImageGalleryHandler(
     pet: PetListItemInfo,
@@ -43,11 +35,6 @@ fun PetImageGalleryHandler(
         })
 }
 
-
-@ExperimentalAnimationApi
-@ExperimentalCoilApi
-@ExperimentalFoundationApi
-@ExperimentalMaterialApi
 @Composable
 fun PetImageGallery(
     pet: PetListItemInfo,

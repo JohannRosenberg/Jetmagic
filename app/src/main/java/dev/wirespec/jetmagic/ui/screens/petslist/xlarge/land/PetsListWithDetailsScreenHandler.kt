@@ -4,7 +4,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
@@ -14,7 +13,6 @@ import dev.wirespec.jetmagic.models.LocalComposableInstance
 import dev.wirespec.jetmagic.models.PetDetailsParams
 import dev.wirespec.jetmagic.ui.ComposableResourceIDs
 
-@ExperimentalMaterialApi
 @Composable
 fun PetsListWithDetailsScreenHandler(composableInstance: ComposableInstance) {
 
@@ -25,7 +23,7 @@ fun PetsListWithDetailsScreenHandler(composableInstance: ComposableInstance) {
                     .weight(1f)
                     .fillMaxHeight()
             ) {
-                crm.RenderComposable(
+                crm.RenderChildComposable(
                     parentComposableId = composableInstance.id,
                     composableResId = ComposableResourceIDs.PetsList,
                     childComposableId = "petsList"
@@ -36,7 +34,7 @@ fun PetsListWithDetailsScreenHandler(composableInstance: ComposableInstance) {
                     .weight(1f)
                     .fillMaxHeight()
             ) {
-                crm.RenderComposable(
+                crm.RenderChildComposable(
                     parentComposableId = composableInstance.id,
                     composableResId = ComposableResourceIDs.PetDetails,
                     childComposableId = "petDetailsPane",

@@ -1,10 +1,13 @@
 package dev.wirespec.jetmagic.ui.theme
 
-import android.view.View
+import android.annotation.SuppressLint
+import android.os.Build
+import android.view.WindowInsetsController
 import android.view.WindowManager
-import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.material.*
+import androidx.compose.material.ButtonColors
+import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.Colors
+import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.luminance
@@ -16,10 +19,7 @@ enum class ColorThemes {
     DefaultLight
 }
 
-@ExperimentalAnimationApi
-@ExperimentalMaterialApi
 class AppTheme {
-    @ExperimentalFoundationApi
     companion object {
         lateinit var appColorTheme: ColorTheme
 
@@ -39,7 +39,7 @@ class AppTheme {
             SetStatusBarColor()
         }
 
-
+        @SuppressLint("InlinedApi")
         @Composable
         fun SetStatusBarColor() {
             val window = App.context.currentActivity!!.window
@@ -49,13 +49,15 @@ class AppTheme {
 
             @Suppress("DEPRECATION")
             if (MaterialTheme.colors.surface.luminance() > 0.5f) {
-                window.decorView.systemUiVisibility = window.decorView.systemUiVisibility or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                    window.decorView.systemUiVisibility = window.decorView.systemUiVisibility or WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
+                }
             }
 
             val decor = window.decorView
 
-            if (appColorTheme.materialColors.isLight) {
-                decor.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+            if ((Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) && (appColorTheme.materialColors.isLight)) {
+                WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
             } else {
                 decor.systemUiVisibility = 0
             }

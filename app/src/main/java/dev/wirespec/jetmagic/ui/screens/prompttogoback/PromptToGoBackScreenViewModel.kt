@@ -3,12 +3,10 @@ package dev.wirespec.jetmagic.ui.screens.prompttogoback
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import coil.annotation.ExperimentalCoilApi
 import dev.wirespec.jetmagic.navigation.NavigateBackOptions
 import dev.wirespec.jetmagic.navigation.NavigationManagerHelper
 import dev.wirespec.jetmagic.navigation.navman
 
-@ExperimentalCoilApi
 class PromptToGoBackScreenViewModel : ViewModel(), NavigationManagerHelper {
 
     private val _onDisplayDialog = MutableLiveData(false)

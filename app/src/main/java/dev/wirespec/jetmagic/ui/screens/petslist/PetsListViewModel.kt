@@ -5,7 +5,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import coil.annotation.ExperimentalCoilApi
 import dev.wirespec.jetmagic.composables.IImageManager
 import dev.wirespec.jetmagic.composables.ImageManager
 import dev.wirespec.jetmagic.composables.crm
@@ -18,7 +17,6 @@ import dev.wirespec.jetmagic.navigation.navman
 import dev.wirespec.jetmagic.ui.ComposableResourceIDs
 import kotlinx.coroutines.launch
 
-@ExperimentalCoilApi
 class PetsListViewModel : ViewModel(), IImageManager {
 
     var scrollState: ScrollState = ScrollState(0)

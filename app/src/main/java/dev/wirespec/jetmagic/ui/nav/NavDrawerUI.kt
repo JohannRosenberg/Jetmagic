@@ -1,9 +1,10 @@
 package dev.wirespec.jetmagic.ui.nav
 
-import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.foundation.*
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.ScrollState
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material.Surface
 import androidx.compose.material.icons.Icons
@@ -22,9 +23,6 @@ import dev.wirespec.jetmagic.ui.ComposableResourceIDs
 import dev.wirespec.jetmagic.ui.theme.AppTheme
 import kotlinx.coroutines.launch
 
-@ExperimentalFoundationApi
-@ExperimentalAnimationApi
-@ExperimentalMaterialApi
 @Composable
 fun NavDrawerHandler(scaffoldState: ScaffoldState, modifier: Modifier = Modifier) {
 
@@ -47,9 +45,6 @@ fun NavDrawerHandler(scaffoldState: ScaffoldState, modifier: Modifier = Modifier
     )
 }
 
-@ExperimentalFoundationApi
-@ExperimentalMaterialApi
-@ExperimentalAnimationApi
 @Composable
 fun NavDrawer(
     currentMenuId: String,

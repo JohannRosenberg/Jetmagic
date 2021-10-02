@@ -1,10 +1,7 @@
 package dev.wirespec.jetmagic.ui.screens.main
 
-import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Scaffold
 import androidx.compose.material.ScaffoldState
 import androidx.compose.runtime.*
@@ -13,17 +10,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import coil.annotation.ExperimentalCoilApi
 import dev.wirespec.jetmagic.App
 import dev.wirespec.jetmagic.composables.ScreenFactoryHandler
 import dev.wirespec.jetmagic.navigation.navman
 import dev.wirespec.jetmagic.ui.components.CustomSnackbarHandler
 import dev.wirespec.jetmagic.ui.nav.NavDrawerHandler
 
-@ExperimentalCoilApi
-@ExperimentalFoundationApi
-@ExperimentalMaterialApi
-@ExperimentalAnimationApi
 @Composable
 fun MainHandler(modifier: Modifier = Modifier) {
     App.mainViewModel = viewModel()
@@ -38,9 +30,6 @@ fun MainHandler(modifier: Modifier = Modifier) {
     Main(scaffoldState, drawerGesturesEnabled = drawerGesturesEnabled, modifier = modifier)
 }
 
-@ExperimentalFoundationApi
-@ExperimentalMaterialApi
-@ExperimentalAnimationApi
 @Composable
 fun Main(scaffoldState: ScaffoldState, drawerGesturesEnabled: Boolean, modifier: Modifier = Modifier) {
     Box {

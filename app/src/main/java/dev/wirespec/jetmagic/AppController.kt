@@ -5,9 +5,6 @@ import android.app.Application
 import android.os.Bundle
 import androidx.compose.animation.*
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.material.ExperimentalMaterialApi
-import coil.annotation.ExperimentalCoilApi
 import dev.wirespec.jetmagic.composables.ScreenOrientation
 import dev.wirespec.jetmagic.composables.ScreenSize
 import dev.wirespec.jetmagic.composables.crm
@@ -42,11 +39,6 @@ import dev.wirespec.jetmagic.ui.screens.unknowndeeplink.UnknownDeepLinkScreenHan
  * Inherits from Application and is used for things like accessing the app's context and setting up
  * resources during the app's startup.
  */
-
-@ExperimentalCoilApi
-@ExperimentalFoundationApi
-@ExperimentalAnimationApi
-@ExperimentalMaterialApi
 class App : Application() {
 
     private val activityLifecycleTracker: AppLifecycleTracker = AppLifecycleTracker()

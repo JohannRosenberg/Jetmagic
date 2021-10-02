@@ -1,14 +1,12 @@
 package dev.wirespec.jetmagic.ui.nav
 
 import androidx.compose.foundation.ScrollState
-import androidx.compose.material.ExperimentalMaterialApi
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import dev.wirespec.jetmagic.navigation.navman
 import dev.wirespec.jetmagic.ui.ComposableResourceIDs
 
-@ExperimentalMaterialApi
 class NavDrawerViewModel : ViewModel() {
 
     var navDrawerScrollState: ScrollState = ScrollState(0)

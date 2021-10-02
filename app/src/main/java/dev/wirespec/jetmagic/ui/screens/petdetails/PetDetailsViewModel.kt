@@ -3,7 +3,6 @@ package dev.wirespec.jetmagic.ui.screens.petdetails
 import androidx.compose.foundation.ScrollState
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import coil.annotation.ExperimentalCoilApi
 import dev.wirespec.jetmagic.composables.IImageManager
 import dev.wirespec.jetmagic.composables.ImageManager
 import dev.wirespec.jetmagic.composables.crm
@@ -13,7 +12,6 @@ import dev.wirespec.jetmagic.models.PetListItemInfo
 import dev.wirespec.jetmagic.navigation.navman
 import kotlinx.coroutines.launch
 
-@ExperimentalCoilApi
 class PetDetailsViewModel: ViewModel(), IImageManager {
 
     var screenScrollState: ScrollState = ScrollState(0)

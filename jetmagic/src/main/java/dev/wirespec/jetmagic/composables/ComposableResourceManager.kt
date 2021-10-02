@@ -219,8 +219,10 @@ open class ComposableResourceManager {
         composableResources.addAll(composables)
     }
 
+
     /**
-     * Renders a [composable instance][ComposableInstance].
+     * Renders a child [composable instance][ComposableInstance]. The child composable instance will be rendered into
+     * the parent composable instance.
      *
      * @param parentComposableId If the composable instance that is to be rendered is the root composable on a screen, this
      * is its id. A root commposable had to have been created previously when the [createRootComposableInstance] function was called, in which
@@ -230,8 +232,8 @@ open class ComposableResourceManager {
      * Whether a resource will be selected and used to create a composable instance depends on whether the childComposableId
      * parameter is specified and whether a child composable instance already exists for the parent composable instance.
      *
-     * @param childComposableId If specified, it means that the composable instance that is about to be rendered is a child
-     * composable on the screen whose parent is identified by the parentComposableId parameter. A check is first made
+     * @param childComposableId The id used to identify the child composable instance. If this parameter is set to null or
+     * not specified, a randomly generated id will be provided for the id. A check is first made
      * to see whether a composable instance for the child already exists in a temporary cache and used if it does. Children
      * composable instances are temporarily cached whenever a device configuration change occurs, such as changing the device's
      * orientation. After the configuration change completes and the current screen is recomposed, RenderComposable should
@@ -242,7 +244,16 @@ open class ComposableResourceManager {
      * @param p Any data that needs to be passed to the composable instance.
      */
     @Composable
-    fun RenderComposable(parentComposableId: String, composableResId: String? = null, childComposableId: String? = null, p: Any? = null) {
+    fun RenderChildComposable(parentComposableId: String, composableResId: String? = null, childComposableId: String? = createId(), p: Any? = null) {
+        RenderComposableInstance(
+            parentComposableId = parentComposableId,
+            composableResId = composableResId,
+            childComposableId = childComposableId,
+            p = p)
+    }
+
+    @Composable
+    internal fun RenderComposableInstance(parentComposableId: String, composableResId: String? = null, childComposableId: String? = null, p: Any? = null) {
 
         // Check if the composable already exists. If it's being recomposed, it should exist in the
         // navigation stack.
@@ -343,7 +354,7 @@ open class ComposableResourceManager {
             val composableResource = composableResources.first { it.id == composableInstance.selectedResourceId }
             composableResource.onRender(composableInstance)
         } else {
-            RenderComposable(parentComposableId = composableInstance.id)
+            RenderComposableInstance(parentComposableId = composableInstance.id)
         }
     }
 

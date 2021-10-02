@@ -1,7 +1,5 @@
 package dev.wirespec.jetmagic.ui.screens.petslist
 
-import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -24,7 +22,6 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
 import dev.wirespec.jetmagic.composables.ManagedImageHandler
 import dev.wirespec.jetmagic.da.web.PetsThumbnailImagesPath
@@ -41,10 +38,6 @@ import dev.wirespec.jetmagic.utils.DeviceUtils
 import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
 
-@ExperimentalCoilApi
-@ExperimentalAnimationApi
-@ExperimentalFoundationApi
-@ExperimentalMaterialApi
 @Composable
 fun PetsListHandler(composableInstance: ComposableInstance) {
 
@@ -82,10 +75,6 @@ fun PetsListHandler(composableInstance: ComposableInstance) {
     }
 }
 
-@ExperimentalCoilApi
-@ExperimentalAnimationApi
-@ExperimentalFoundationApi
-@ExperimentalMaterialApi
 @Composable
 fun PetsList(
     modifier: Modifier = Modifier,
@@ -176,7 +165,6 @@ fun PetsList(
     }
 }
 
-@ExperimentalCoilApi
 @Composable
 fun PetGridItem(
     pet: PetListItemInfo,

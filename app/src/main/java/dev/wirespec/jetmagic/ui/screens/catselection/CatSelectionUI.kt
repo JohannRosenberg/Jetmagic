@@ -1,7 +1,5 @@
 package dev.wirespec.jetmagic.ui.screens.catselection
 
-import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -11,24 +9,17 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import coil.annotation.ExperimentalCoilApi
 import dev.wirespec.jetmagic.models.ComposableInstance
 import dev.wirespec.jetmagic.models.ComposableParams
 import dev.wirespec.jetmagic.navigation.navman
 import dev.wirespec.jetmagic.ui.components.BasicRadioButton
 import dev.wirespec.jetmagic.ui.theme.AppTheme
 
-
-@ExperimentalCoilApi
-@ExperimentalFoundationApi
-@ExperimentalAnimationApi
-@ExperimentalMaterialApi
 @Composable
 fun CatSelectionHandler(composableInstance: ComposableInstance) {
 
@@ -41,10 +32,6 @@ fun CatSelectionHandler(composableInstance: ComposableInstance) {
         })
 }
 
-@ExperimentalCoilApi
-@ExperimentalFoundationApi
-@ExperimentalAnimationApi
-@ExperimentalMaterialApi
 @Composable
 fun CatSelection(
     modifier: Modifier = Modifier,

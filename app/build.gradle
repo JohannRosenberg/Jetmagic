@@ -11,8 +11,8 @@ android {
         applicationId "dev.wirespec.jetmagic"
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 2
-        versionName "1.0.3"
+        versionCode 3
+        versionName "1.0.4"
     }
 
     buildTypes {
@@ -34,7 +34,7 @@ android {
     }
     composeOptions {
         kotlinCompilerExtensionVersion compose_version
-        kotlinCompilerVersion '1.5.21'
+        kotlinCompilerVersion '1.5.30'
     }
 }
 
@@ -45,7 +45,7 @@ dependencies {
     def retrofit_version = "2.9.0"
     def paging_version = "3.1.0-alpha03"
 
-    implementation 'androidx.core:core-ktx:1.7.0-alpha02'
+    implementation 'androidx.core:core-ktx:1.6.0'
     implementation 'androidx.appcompat:appcompat:1.4.0-alpha03'
     implementation 'com.google.android.material:material:1.5.0-alpha03'
     implementation "androidx.activity:activity-ktx:$activity_version"
@@ -58,7 +58,7 @@ dependencies {
     implementation "androidx.compose.foundation:foundation:$compose_version"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha07'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.4.0-beta01'
     implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.1'
     implementation project(':jetmagic')
 

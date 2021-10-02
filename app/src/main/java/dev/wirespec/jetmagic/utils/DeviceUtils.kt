@@ -7,15 +7,9 @@ import android.graphics.Rect
 import android.graphics.RectF
 import android.util.DisplayMetrics
 import android.view.WindowManager
-import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.material.ExperimentalMaterialApi
 import dev.wirespec.jetmagic.App
 import kotlin.math.roundToInt
 
-@ExperimentalMaterialApi
-@ExperimentalFoundationApi
-@ExperimentalAnimationApi
 class DeviceUtils {
     companion object {
         fun convertDpToPixel(dp: Int): Int {
