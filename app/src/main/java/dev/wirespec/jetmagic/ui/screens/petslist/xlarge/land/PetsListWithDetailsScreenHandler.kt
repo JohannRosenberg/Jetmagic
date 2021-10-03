@@ -26,7 +26,7 @@ fun PetsListWithDetailsScreenHandler(composableInstance: ComposableInstance) {
                 crm.RenderChildComposable(
                     parentComposableId = composableInstance.id,
                     composableResId = ComposableResourceIDs.PetsList,
-                    childComposableId = "petsList"
+                    childComposableId = "petsList",
                 )
             }
             Column(
@@ -37,7 +37,7 @@ fun PetsListWithDetailsScreenHandler(composableInstance: ComposableInstance) {
                 crm.RenderChildComposable(
                     parentComposableId = composableInstance.id,
                     composableResId = ComposableResourceIDs.PetDetails,
-                    childComposableId = "petDetailsPane",
+                    childComposableId = "petDetails",
                     p = PetDetailsParams(displayAppBar = false)
                 )
             }

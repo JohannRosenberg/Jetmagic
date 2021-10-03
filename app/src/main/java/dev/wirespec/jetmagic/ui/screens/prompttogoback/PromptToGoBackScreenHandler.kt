@@ -17,7 +17,7 @@ fun PromptToGoBackScreenHandler(composableInstance: ComposableInstance) {
         crm.RenderChildComposable(
             parentComposableId = composableInstance.id,
             composableResId = ComposableResourceIDs.PromptToGoBack,
-            childComposableId = "promptToGoBack"
+            childComposableId = "promptToGoBack",
         )
 
         DialogToReturnHandler()

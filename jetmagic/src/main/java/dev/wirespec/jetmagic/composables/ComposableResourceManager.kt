@@ -232,19 +232,17 @@ open class ComposableResourceManager {
      * Whether a resource will be selected and used to create a composable instance depends on whether the childComposableId
      * parameter is specified and whether a child composable instance already exists for the parent composable instance.
      *
-     * @param childComposableId The id used to identify the child composable instance. If this parameter is set to null or
-     * not specified, a randomly generated id will be provided for the id. A check is first made
-     * to see whether a composable instance for the child already exists in a temporary cache and used if it does. Children
-     * composable instances are temporarily cached whenever a device configuration change occurs, such as changing the device's
-     * orientation. After the configuration change completes and the current screen is recomposed, RenderComposable should
-     * be called to recompose the root (parent) composable instance which in turn will recompose all of its children. The
-     * temporarily cached children are reused if a screen with the same parent is recomposed. Any unused cached children
-     * instances remain in the cache until the user navigates back to a previous screen or to the home screen.
+     * @param childComposableId The id used to identify the child composable instance. A check is first made to see whether a
+     * composable instance for the child already exists in a temporary cache and used if it does. Children composable
+     * instances are temporarily cached whenever a device configuration change occurs, such as changing the device's
+     * orientation. A configuration change will recompose all the screens. The temporarily cached children are reused if
+     * a screen with the same parent is recomposed. Any unused cached children instances remain in the cache until the
+     * user navigates back to a previous screen or to the home screen.
      *
      * @param p Any data that needs to be passed to the composable instance.
      */
     @Composable
-    fun RenderChildComposable(parentComposableId: String, composableResId: String? = null, childComposableId: String? = createId(), p: Any? = null) {
+    fun RenderChildComposable(parentComposableId: String, composableResId: String? = null, childComposableId: String, p: Any? = null) {
         RenderComposableInstance(
             parentComposableId = parentComposableId,
             composableResId = composableResId,
