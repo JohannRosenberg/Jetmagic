@@ -118,7 +118,8 @@ fun PetsListScreenHandler(composableInstance: ComposableInstance) {
 
     crm.RenderChildComposable(
         parentComposableId = composableInstance.id,
-        composableResId = ComposableResourceIDs.PetsList
+        composableResId = ComposableResourceIDs.PetsList,
+        childComposableId = "petsList"
     )
 }
 
@@ -210,7 +211,8 @@ fun PetsListWithDetailsScreenHandler(composableInstance: ComposableInstance) {
             ) {
                 crm.RenderChildComposable(
                     parentComposableId = composableInstance.id,
-                    composableResId = ComposableResourceIDs.PetsList
+                    composableResId = ComposableResourceIDs.PetsList,
+                    childComposableId = "petsList"
                 )
             }
             Column(
@@ -220,7 +222,8 @@ fun PetsListWithDetailsScreenHandler(composableInstance: ComposableInstance) {
             ) {
                 crm.RenderChildComposable(
                     parentComposableId = composableInstance.id,
-                    composableResId = ComposableResourceIDs.PetDetails
+                    composableResId = ComposableResourceIDs.PetDetails,
+                    childComposableId = "petDetails",
                     p = PetDetailsParams(displayAppBar = false)
                 )
             }
@@ -237,6 +240,7 @@ fun TestScreenHandler(composableInstance: ComposableInstance) {
         crm.RenderChildComposable(
             parentComposableId = composableInstance.id,
             composableResId = ComposableResourceIDs.Test,
+            childComposableId = "test",
             p = composableInstance.parameters
         )
 }

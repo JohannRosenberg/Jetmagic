@@ -23,7 +23,7 @@ https://proandroiddev.com/jetmagic-a-framework-for-building-responsive-apps-usin
 Add the following dependency to your gradle file:
 
 ```
-implementation 'dev.wirespec.jetmagic:jetmagic:1.0.5'
+implementation 'dev.wirespec.jetmagic:jetmagic:1.0.6'
 ```
 
 <br />
