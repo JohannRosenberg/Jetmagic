@@ -1,6 +1,7 @@
 package dev.wirespec.jetmagic.models
 
 import androidx.compose.runtime.Composable
+import androidx.lifecycle.ViewModel
 import dev.wirespec.jetmagic.composables.*
 
 /**
@@ -36,9 +37,21 @@ open class ComposableResource(
 
     /**
      * The class that will be used to create an instance of the viewmodel associated with an instance of the composable.
-     * Only a reference to the viewmodel class is to be provided. For example: PetsListViewModel::class.java
+     * The viewmodel will only be created if onCreateViewmodel is null. viewmodelClass is a general purpose way of
+     * creating a viewmodel that doesn't have any constructor parameters and there is no need for a more elaborate way
+     * to create a viewmodel. If you need to have control over how the viewmodel is created, use onCreateViewmodel.
+     * viewmodelClass only takes a reference to the class. For example: PetsListViewModel::class.java
      */
     val viewmodelClass: Class<*>? = null,
+
+    /**
+     * A callback that can be used to create the viewmodel. If provided, the viewmodelClass property must also be set to
+     * indicate the viewmodel class that you are implementing. The viewmodelClass will only be used during device
+     * configuration changes to determine if an updated resource needs to use a different viewmodel than the one it
+     * may have previously had. If onCreateViewmodel is specified but viewmodelClass is left null, an exception will
+     * be thrown when [addComposableResources] is called.
+     */
+    val onCreateViewmodel: (() -> ViewModel)? = null,
 
     /**
      * The mobile country code (MCC). If the MNC qualifier is also provided, it will be combined with the MCC qualifier
@@ -175,5 +188,3 @@ open class ComposableResource(
      */
     internal var id: String? = null
 }
-
-

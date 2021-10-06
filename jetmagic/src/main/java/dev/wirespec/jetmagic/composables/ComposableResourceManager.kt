@@ -179,6 +179,14 @@ open class ComposableResourceManager {
             defaultComposableResources.add(defaultRes)
         }
 
+        // If the onCreateViewmodel has been provided, check that the viewmodelClass has also been provided.
+        val resourceWithMissingViewModel = composables.firstOrNull{ (it.onCreateViewmodel != null) && (it.viewmodelClass == null) }
+
+        if (resourceWithMissingViewModel != null) {
+            throw Exception("The resource composable with the reourceId '" + resourceWithMissingViewModel.resourceId +
+                    "' has set its onCreateViewmodel property but did not set the viewmodelClass property. Please set the viewmodelClass property.")
+        }
+
         // Check that a resource hasn't been accidentally added more than once for the same id.
         composables.forEach { c ->
             val index = composables.indexOfFirst {
@@ -317,7 +325,12 @@ open class ComposableResourceManager {
                 ((composableInstance.viewmodel == null) || ((composableInstance.viewmodel != null) && !composableResource.viewmodelClass.isInstance
                     (composableInstance.viewmodel)))
             ) {
-                composableInstance.viewmodel = composableResource.viewmodelClass.newInstance() as ViewModel
+                if (composableResource.onCreateViewmodel != null) {
+                    composableInstance.viewmodel = composableResource.onCreateViewmodel.invoke()
+                } else {
+                    composableInstance.viewmodel = composableResource.viewmodelClass.newInstance() as ViewModel
+                }
+
             } else if ((composableResource.viewmodelClass == null) && (composableInstance.viewmodel != null)) {
                 composableInstance.viewmodel = null
             }
@@ -457,7 +470,8 @@ open class ComposableResourceManager {
         val childComposableInstance = notifyChildComposableInstanceOfUpdate(
             parentComposableInstance = parentComposableInstance,
             childComposableId = childComposableId,
-            childComposableResourceId = childComposableResourceId
+            childComposableResourceId = childComposableResourceId,
+            p = p
         )
 
         if (childComposableInstance == null) {
@@ -495,7 +509,8 @@ open class ComposableResourceManager {
     fun notifyChildComposableInstanceOfUpdate(
         parentComposableInstance: ComposableInstance,
         childComposableId: String? = null,
-        childComposableResourceId: String
+        childComposableResourceId: String,
+        p: Any? = null
     ): ComposableInstance? {
         val childComposableInstance = getChildComposableInstance(
             parentComposableInstance = parentComposableInstance,
@@ -504,6 +519,10 @@ open class ComposableResourceManager {
         )
 
         if (childComposableInstance != null) {
+            if (p != null) {
+                childComposableInstance.parameters = p
+            }
+
             notifyComposableOfUpdate(childComposableInstance)
         }
 
@@ -1259,4 +1278,3 @@ open class ComposableResourceManager {
 
 @SuppressLint("StaticFieldLeak")
 lateinit var crm: ComposableResourceManager
-
