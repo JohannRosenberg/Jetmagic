@@ -20,7 +20,7 @@ The Github project contains a fully functional app that demonstrates each API. F
 
 https://proandroiddev.com/jetmagic-a-framework-for-building-responsive-apps-using-jetpack-compose-7746ba42666c
 
-Add the following dependencies to your gradle file:
+Add the following dependencies to your app's build.gradle file:
 
 ```
 implementation 'dev.wirespec.jetmagic:jetmagic:1.0.7'
