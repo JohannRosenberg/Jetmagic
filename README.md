@@ -516,9 +516,7 @@ The Deep Link documentation covers:
 For details on these topics, see:
 [**Deep Linking**](../../tree/main/jetmagic/readme-deep-link.md)![](https://en.wikipedia.org/w/resources/src/mediawiki.skinning/images/external-ltr.svg?59558)
 
-
-
-
+<br /><br />
 
 # License
 
