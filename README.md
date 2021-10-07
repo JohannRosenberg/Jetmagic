@@ -515,3 +515,13 @@ The Deep Link documentation covers:
 
 For details on these topics, see:
 [**Deep Linking**](../../tree/main/jetmagic/readme-deep-link.md)![](https://en.wikipedia.org/w/resources/src/mediawiki.skinning/images/external-ltr.svg?59558)
+
+
+
+----
+
+# License
+
+This software is open source and licensed under the GNU GENERAL PUBLIC LICENSE (Version 3). See:
+
+http://www.gnu.org/licenses/gpl-3.0.html
