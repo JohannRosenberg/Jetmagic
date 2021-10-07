@@ -518,7 +518,7 @@ For details on these topics, see:
 
 
 
-----
+
 
 # License
 
