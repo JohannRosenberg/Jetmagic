@@ -16,9 +16,11 @@ Jetmagic is an Android framework that can be used to develop responsive Android 
 
 <br />
 
-The Github project contains a fully functional app that demonstrates each API. For a detailed overview of the framework, see:
+The Github project contains a fully functional app that demonstrates each API. For a detailed overview of the framework and a step-by-step guide on creating a minimal
+responsive app, see:
 
-https://proandroiddev.com/jetmagic-a-framework-for-building-responsive-apps-using-jetpack-compose-7746ba42666c
+[https://johannblake.medium.com/creating-responsive-layouts-using-jetpack-compose-7746ba42666c](https://johannblake.medium
+.com/creating-responsive-layouts-using-jetpack-compose-7746ba42666c)
 
 Add the following dependencies to your app's build.gradle file:
 
