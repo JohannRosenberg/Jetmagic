@@ -33,7 +33,7 @@ implementation "androidx.compose.runtime:runtime-livedata:$compose_version"
 ## Jetmagic Architecture
 
 <p align="center">
-    <img src="../../blob/main/images/jetmagic-architecture.png" width="840" height="766" />
+    <img src="../../blob/main/images/jetmagic-architecture.png" width="700" height="638" />
 </p>
 
 <br />
