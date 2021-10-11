@@ -36,6 +36,8 @@ implementation "androidx.compose.runtime:runtime-livedata:$compose_version"
     <img src="../../blob/main/images/jetmagic-architecture.png" width="840" height="766" />
 </p>
 
+<br />
+
 Jetmagic treats your composables like resources in a similar way that Android treats xml-based layout resources under the older view-based system. Under the older system, Android detects the device configuration and any changes to the device such as an orientation change and then selects the xml resource layout that would apply to the configuration settings.
 
 Using Jetmagic, you tell the Composable Resource Manager (CRM) which composables you want to use as "*layouts*". You do this by creating an instance of a **ComposableResource** and set properties in the constructor that indicate the configuration settings you want associated with your composable such as orientation, screen size, screen density, etc. You also provide a callback that will get called if the resource is selected. In the callback, you simply make a call to the composable function that you want to use to render the UI.
@@ -50,7 +52,7 @@ Navigating to another screen is done by either calling on the Navigation Manager
 
 If configuration change occurs while the app is running, the activity's **onDestroy** is called and a call is made to the CRM informing it that a configuration change has occurred. The CRM will obtain all the composable instances from the Navigation Manager and set their **recourceId** to null. The resourceId is used to identify which composable resource was used to render the composable. Although the activity has been destroyed, the Navigation Manager and the CRM both retain the state of all the composable resources and composable instances. When the activity is restarted after onDestroy, the Screen Factory will be rendered again and will proceed to render the composable instances as it normally does. However, when it calls RenderComposable for each composable instance, the CRM will notice that the resourceId is set to null, indicating that it may need to select a new resource to render the composable. Because the composable instance is separate from the composable resource, the CRM and the Navigation Manager are able to retain the state of the composable instance even when a new resource is selected. This state includes any optional viewmodel that you want associated with the composable.
 
-
+<br /><br />
 
 ## Using the Demo App
 
