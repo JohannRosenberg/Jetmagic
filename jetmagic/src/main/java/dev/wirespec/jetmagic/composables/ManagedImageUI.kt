@@ -29,6 +29,7 @@ fun ManagedImageHandler(
     id: String,
     imagePath: String,
     modifier: Modifier = Modifier,
+    contentScale: ContentScale = ContentScale.Crop,
     painterFactory: @Composable (imagePath: String, animate: Boolean) -> ImagePainter
 ) {
     val imageMan = (LocalComposableInstance.current.viewmodel as IImageManager).imageManager
@@ -44,7 +45,8 @@ fun ManagedImageHandler(
 
     Image(
         painter = painter,
-        modifier =  modifier
+        contentScale = contentScale,
+        modifier = modifier
     )
 }
 
@@ -58,12 +60,13 @@ fun ManagedImageHandler(
 @Composable
 fun Image(
     painter: Painter,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    contentScale: ContentScale = ContentScale.Crop
 ) {
     Image(
         painter = painter,
         contentDescription = null,
-        modifier = modifier,
-        contentScale = ContentScale.Crop
+        contentScale = contentScale,
+        modifier = modifier
     )
 }

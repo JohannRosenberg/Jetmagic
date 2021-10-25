@@ -75,6 +75,9 @@ open class ComposableResourceManager {
 
     private val composableResources = mutableListOf<ComposableResource>()
     private val defaultComposableResources = mutableListOf<ComposableResource>()
+
+    // The cached composables are only temporarily cached during a configuration change. An item
+    // is removed from the cache once it's resource id has been resolved during the config changes.
     private val cachedComposableInstances = mutableMapOf<String, MutableMap<String, ComposableInstance>>()
 
     /**
@@ -116,6 +119,8 @@ open class ComposableResourceManager {
      *
      */
     fun onConfigurationChanged() {
+        this.cfg = this.ctx.resources.configuration
+
         navMan.navStack.forEach { parentComposable ->
             parentComposable.selectedResourceId = null
 
@@ -180,11 +185,13 @@ open class ComposableResourceManager {
         }
 
         // If the onCreateViewmodel has been provided, check that the viewmodelClass has also been provided.
-        val resourceWithMissingViewModel = composables.firstOrNull{ (it.onCreateViewmodel != null) && (it.viewmodelClass == null) }
+        val resourceWithMissingViewModel = composables.firstOrNull { (it.onCreateViewmodel != null) && (it.viewmodelClass == null) }
 
         if (resourceWithMissingViewModel != null) {
-            throw Exception("The resource composable with the reourceId '" + resourceWithMissingViewModel.resourceId +
-                    "' has set its onCreateViewmodel property but did not set the viewmodelClass property. Please set the viewmodelClass property.")
+            throw Exception(
+                "The resource composable with the reourceId '" + resourceWithMissingViewModel.resourceId +
+                        "' has set its onCreateViewmodel property but did not set the viewmodelClass property. Please set the viewmodelClass property."
+            )
         }
 
         // Check that a resource hasn't been accidentally added more than once for the same id.
@@ -255,7 +262,8 @@ open class ComposableResourceManager {
             parentComposableId = parentComposableId,
             composableResId = composableResId,
             childComposableId = childComposableId,
-            p = p)
+            p = p
+        )
     }
 
     @Composable
@@ -343,7 +351,7 @@ open class ComposableResourceManager {
             } as ComposableResource
         }
 
-        if ((composableInstance.parameters == null) && (p != null)) {
+        if (p != null) {
             composableInstance.parameters = p
         }
 
@@ -539,6 +547,7 @@ open class ComposableResourceManager {
      * @return The selected composable resource will be returned.
      */
     fun selectComposableResource(composableResId: String): ComposableResource {
+
         val resourcesFiltered = composableResources.filter { it.resourceId == composableResId }.toMutableList()
 
         var i = 0
@@ -956,7 +965,7 @@ open class ComposableResourceManager {
                 QualifierConfiguration.PrimaryTextInputMethod -> composableResource.primaryTextInputMethod
                 QualifierConfiguration.NavigationKeyAvailibility -> composableResource.navigationKeyAvailability
                 QualifierConfiguration.PrimaryNonTouchNavigationMethod -> composableResource.primaryNonTouchNavigationMethod
-                QualifierConfiguration.PlatformVersion -> composableResource.platformVersion
+                else -> composableResource.platformVersion
             } == null
         ) {
             resources.removeAt(index)

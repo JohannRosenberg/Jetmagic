@@ -39,7 +39,6 @@ class NavigationManager {
 
     private val MaxRandomNumber = 1_000_000
     private val screenChangeObservers = mutableListOf<(ComposableInstance) -> Unit>()
-    private var cleanupScreensOnReturningHome = true
 
     /**
      * Both the Navigation Manager and the ComposableResourceManager have caches that
@@ -222,12 +221,16 @@ class NavigationManager {
      * screens need to do any cleanup, or if you can ensure that all the screens currently on the navigation stack
      * (except the current screen) don't require any cleanup, consider setting this parameter to false for a better
      * UI response.
+     *
+     * @param p Any parameter data that needs to be passed to the home screen.
      */
-    fun gotoHomeScreen(cleanupScreensOnReturningHome: Boolean = true) {
-        this.cleanupScreensOnReturningHome = cleanupScreensOnReturningHome
+    fun gotoHomeScreen(cleanupScreensOnReturningHome: Boolean = true, p: Any? = null) {
         clearDeepLinks()
         notifyCRMOnNavigationBackOrToHomeScreen()
-        handleNavigateBackOptions(::gotoHomeScreenImmediately)
+
+        handleNavigateBackOptions {
+            gotoHomeScreenImmediately(cleanupScreensOnReturningHome = cleanupScreensOnReturningHome, p = p)
+        }
     }
 
     /**
@@ -238,12 +241,10 @@ class NavigationManager {
      *
      * @param cleanupScreensOnReturningHome See the documentation for the cleanupScreensOnReturningHome parameter of
      * [gotoHomeScreen].
+     *
+     * @param p Any parameter data that needs to be passed to the home screen.
      */
-    fun gotoHomeScreenImmediately(cleanupScreensOnReturningHome: Boolean? = null): Boolean {
-
-        if (cleanupScreensOnReturningHome != null) {
-            this.cleanupScreensOnReturningHome = cleanupScreensOnReturningHome
-        }
+    fun gotoHomeScreenImmediately(cleanupScreensOnReturningHome: Boolean = true, p: Any? = null): Boolean {
 
         clearDeepLinks()
         notifyCRMOnNavigationBackOrToHomeScreen()
@@ -251,41 +252,35 @@ class NavigationManager {
         trash.clear()
         val lastScreenIndex = navStack.lastIndex - 1
 
-        for (i in 1 until navStack.lastIndex) {
+        for (i in lastScreenIndex downTo 1) {
             val composableInstance = navStack[i]
             composableInstance.isTerminated = true
             trash.add(navStack[i])
+            navStack.removeAt(i)
 
             // Notify all the children on the screen that the screen is closing.
             composableInstance.composables.forEach {
                 it.isTerminated = true
 
-                if (this.cleanupScreensOnReturningHome || (i == lastScreenIndex)) {
+                if (cleanupScreensOnReturningHome || (i == lastScreenIndex)) {
                     it._onCloseScreen?.value = true
                 }
             }
 
-            if (this.cleanupScreensOnReturningHome || (i == lastScreenIndex)) {
+            if (cleanupScreensOnReturningHome || (i == lastScreenIndex)) {
                 // Notify the root composable that the screen is closing.
                 composableInstance._onCloseScreen?.value = true
             }
         }
 
-        val lastPos = if (this.cleanupScreensOnReturningHome) 1 else 2
-
-        for (i in navStack.lastIndex - lastPos downTo 1) {
-            navStack.removeAt(i)
+        // Store the optional parameters in the home screen.
+        if (p != null) {
+            navStack[0].parameters = p
+            navStack[0]._onUpdate?.value = (0..MaxRandomNumber).random()
         }
 
-        if (this.cleanupScreensOnReturningHome) {
-            // The screen factory will not get updated when notifyScreenChangeWithCallback is called.
-            notifyScreenChangeWithCallback(navStack[navStack.lastIndex - 1])
-        } else {
-            // The screen factory will get updated when notifyScreenChangeWithLiveDataAndCallbacks is called.
-            notifyScreenChangeWithLiveDataAndCallbacks(navStack[navStack.lastIndex - 1])
-        }
-
-        this.cleanupScreensOnReturningHome = true
+        // The screen factory will not get updated when notifyScreenChangeWithCallback is called.
+        notifyScreenChangeWithCallback(navStack[navStack.lastIndex - 1])
 
         return true
     }
@@ -310,7 +305,9 @@ class NavigationManager {
      */
     fun goBack(): Boolean {
         clearDeepLinks()
-        return handleNavigateBackOptions(::goBackImmediately)
+        return handleNavigateBackOptions {
+            goBackImmediately()
+        }
     }
 
     /**
@@ -685,7 +682,6 @@ class NavigationManager {
 
             when (navHelper.onNavigateBack()) {
                 Cancel, null -> {
-                    cleanupScreensOnReturningHome = true
                     return true
                 }
                 GoBackImmediately -> {
