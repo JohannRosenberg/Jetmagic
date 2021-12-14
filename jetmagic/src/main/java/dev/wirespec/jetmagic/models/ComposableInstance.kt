@@ -94,7 +94,7 @@ open class ComposableInstance(
      *
      * Whenever the LiveData is triggered, the composable instance performs a recompose.
      */
-    var onCloseScreen: LiveData<Boolean>? = null,
+    var onCloseScreen: LiveData<Boolean> = MutableLiveData(false), //  ? = null,
 
     /**
      * If set to true, the composable is terminated and no longer part of the navigation stack. A call to

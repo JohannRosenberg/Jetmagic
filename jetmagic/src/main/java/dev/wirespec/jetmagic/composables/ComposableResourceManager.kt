@@ -377,6 +377,65 @@ open class ComposableResourceManager {
         }
     }
 
+    /**
+     * Renders a composable.
+     *
+     * This function is intended to render a composable but not assign the composable instance to any parent
+     * composable. Generally, you would use this if the composable you want to render is located deeper down in
+     * your UI hierarchy and adding it as a child would be incovenient, which might be the case where you
+     * are using LocalComposableInstance for a child composable but some deeper nested composable needs access to
+     * the parent composable. It might also be the case where you just need to render a composable with only
+     * the device's configuration being used and have no intention of using a viewmodel or caching the composable.
+     *
+     * The composable instance that gets created is not stored in any parent composable. Although you can provide
+     * a viewmodel when you add the composable resoruce with addComposableResources, you should not rely on the
+     * viewmodel being available during recompositions. If a recomposition occurs, a new instance will get created
+     * along with a new viewmodel.
+     *
+     * @param composableResId The id of the resource that will be used to render the composable.
+     *
+     * @param id An id to identify the composable instance. If left null, a random number will be assigned
+     * as the id.
+     *
+     * @param p Any optional data to pass to the composable.
+     */
+    @Composable
+    fun RenderComposableInstance(composableResId: String, id: String? = null, p: Any? = null) {
+
+        val _onUpdate = MutableLiveData(0)
+        val onUpdate: LiveData<Int> = _onUpdate
+
+        val _onCloseScreen = MutableLiveData(false)
+        val onCloseScreen: LiveData<Boolean> = _onCloseScreen
+
+        val composableInstance = ComposableInstance(
+            id = id ?: (0..1_000_000).toString(),
+            composableResId = composableResId,
+            parameters = p,
+            _onUpdate = _onUpdate,
+            onUpdate = onUpdate,
+            _onCloseScreen = _onCloseScreen,
+            onCloseScreen = onCloseScreen
+        )
+
+        val composableResource = selectComposableResource(composableResId = composableResId)
+
+        if (composableResource.viewmodelClass != null) {
+            if (composableResource.onCreateViewmodel != null) {
+                composableInstance.viewmodel = composableResource.onCreateViewmodel.invoke()
+            } else {
+                composableInstance.viewmodel = composableResource.viewmodelClass.newInstance() as ViewModel
+            }
+        }
+
+        if (p != null) {
+            composableInstance.parameters = p
+        }
+
+        // Render the composable.
+        composableResource.onRender(composableInstance)
+    }
+
 
     /**
      * Returns the composable resource that will be used for the specified [composable instance][ComposableInstance]

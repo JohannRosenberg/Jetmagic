@@ -3,7 +3,10 @@ package dev.wirespec.jetmagic.composables
 import androidx.compose.foundation.Image
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.DefaultAlpha
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import coil.annotation.ExperimentalCoilApi
@@ -29,8 +32,11 @@ fun ManagedImageHandler(
     id: String,
     imagePath: String,
     modifier: Modifier = Modifier,
+    alignment: Alignment = Alignment.TopCenter,
     contentScale: ContentScale = ContentScale.Crop,
-    painterFactory: @Composable (imagePath: String, animate: Boolean) -> ImagePainter
+    alpha: Float = DefaultAlpha,
+    colorFilter: ColorFilter? = null,
+    painterFactory: @Composable (imagePath: String, animate: Boolean) -> ImagePainter,
 ) {
     val imageMan = (LocalComposableInstance.current.viewmodel as IImageManager).imageManager
 
@@ -44,9 +50,12 @@ fun ManagedImageHandler(
     imageMan.getImageState(id).onUpdate.observeAsState().value
 
     Image(
+        modifier = modifier,
         painter = painter,
+        alignment = alignment,
         contentScale = contentScale,
-        modifier = modifier
+        alpha = alpha,
+        colorFilter = colorFilter
     )
 }
 
@@ -59,14 +68,20 @@ fun ManagedImageHandler(
  */
 @Composable
 fun Image(
-    painter: Painter,
     modifier: Modifier = Modifier,
-    contentScale: ContentScale = ContentScale.Crop
+    painter: Painter,
+    alignment: Alignment = Alignment.Center,
+    contentScale: ContentScale = ContentScale.Crop,
+    alpha: Float = DefaultAlpha,
+    colorFilter: ColorFilter? = null
 ) {
     Image(
+        modifier = modifier,
         painter = painter,
         contentDescription = null,
+        alignment = alignment,
         contentScale = contentScale,
-        modifier = modifier
+        alpha = alpha,
+        colorFilter = colorFilter
     )
 }

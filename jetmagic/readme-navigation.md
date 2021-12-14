@@ -76,7 +76,10 @@ class PromptToGoBackScreenViewModel : ViewModel(), NavigationManagerHelper {
 }
 ```
 
-When the user taps on the Back button, the onNavigateBack gets called and returns **NavigateBackOptions.Cancel**. It also notifies the composable to display a dialog that lets the user decide whether to return to the previous screen or not. If the user chooses to return, **naman.goBackImmediately** is called. You need to call **naman.goBackImmediately** instead of **naman.goBack** because **naman.goBackImmediately** ignores whether the viewmodel has implemented the onNavigateBack callback. If you were to call **naman.goBack**, you would end up in a loop with **onNavigateBack** being called repeatedly.
+When the user taps on the Back button, the onNavigateBack gets called and returns **NavigateBackOptions.Cancel**. It also notifies the composable to display a dialog
+that lets the user decide whether to return to the previous screen or not. If the user chooses to return, **navman.goBackImmediately** is called. You need to call
+**navman.goBackImmediately** instead of **navman.goBack** because **navman.goBackImmediately** ignores whether the viewmodel has implemented the onNavigateBack callback
+. If you were to call **navman.goBack**, you would end up in a loop with **onNavigateBack** being called repeatedly.
 
 If you have multiple viewmodels associated with a screen and more than one implements NavigationManagerHelper, only one of them should be used to handle **onNavigateBack**. The others should return null, which is the same thing as returning Cancel. If more than one onNavigateBack is called and more than one returns something other than Cancel or null, you will get unpredictable results. The recommended place to use NavigationManagerHelper is in the viewmodel associated with the screen handler and not in the children composable instances. If the children composable instances need to know when the screen is about to be terminated, they can inspect the **isTerminated** property of their composable instance.
 

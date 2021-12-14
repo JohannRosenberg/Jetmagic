@@ -195,6 +195,7 @@ class NavigationManager {
             }
         }
 
+        composableInstance._onCloseScreen?.value = false
         trash.clear()
         navStack.add(navStack.lastIndex, composableInstance)
         notifyScreenChangeWithLiveDataAndCallbacks(composableInstance)
@@ -345,7 +346,12 @@ class NavigationManager {
                 break
             }
 
-            composableInstance.isTerminated = true
+            val inCache = navCache.any { it.id == composableInstance.id }
+
+            if (!inCache) {
+                composableInstance.isTerminated = true
+            }
+
             trash.add(navStack[lastIndex])
 
             navStack.removeAt(lastIndex)
@@ -353,7 +359,10 @@ class NavigationManager {
 
             // Notify all the children on the screen that the screen is closing.
             composableInstance.composables.forEach {
-                it.isTerminated = true
+                if (!inCache) {
+                    it.isTerminated = true
+                }
+
                 it._onCloseScreen?.value = true
             }
 

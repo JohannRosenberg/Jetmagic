@@ -5,14 +5,14 @@ plugins {
 
 android {
     compileSdkVersion 31
-    buildToolsVersion "30.0.3"
+    buildToolsVersion "32.0.0"
 
     defaultConfig {
         applicationId "dev.wirespec.jetmagic"
         minSdkVersion 21
         targetSdkVersion 31
         versionCode 5
-        versionName "1.0.8"
+        versionName "1.1.0"
     }
 
     buildTypes {
@@ -34,20 +34,20 @@ android {
     }
     composeOptions {
         kotlinCompilerExtensionVersion compose_version
-        kotlinCompilerVersion '1.5.31'
+        kotlinCompilerVersion '1.6.0'
     }
 }
 
 dependencies {
 
-    def lifecycle_version = '2.4.0-rc01'
-    def activity_version = "1.3.1"
+    def lifecycle_version = '2.4.0'
+    def activity_version = "1.4.0"
     def retrofit_version = "2.9.0"
-    def paging_version = '3.1.0-beta01'
+    def paging_version = '3.1.0'
 
-    implementation 'androidx.core:core-ktx:1.6.0'
-    implementation 'androidx.appcompat:appcompat:1.4.0-beta01'
-    implementation 'com.google.android.material:material:1.5.0-alpha04'
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.4.0'
+    implementation 'com.google.android.material:material:1.6.0-alpha01'
     implementation "androidx.activity:activity-ktx:$activity_version"
     implementation "androidx.activity:activity-compose:$activity_version"
     implementation "androidx.compose.ui:ui:$compose_version"
@@ -58,7 +58,7 @@ dependencies {
     implementation "androidx.compose.foundation:foundation:$compose_version"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.4.0-rc01'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.4.0'
     implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.0'
     implementation project(':jetmagic')
 
