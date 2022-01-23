@@ -380,7 +380,7 @@ open class ComposableResourceManager {
     /**
      * Renders a composable.
      *
-     * This function is intended to render a composable but not assign the composable instance to any parent
+     * This function is intended to render a composable but not assigned the composable instance to any parent
      * composable. Generally, you would use this if the composable you want to render is located deeper down in
      * your UI hierarchy and adding it as a child would be incovenient, which might be the case where you
      * are using LocalComposableInstance for a child composable but some deeper nested composable needs access to
@@ -471,14 +471,14 @@ open class ComposableResourceManager {
      * that has the resource id and that child will be returned.
      *
      * @param childComposableResourceId If no child composable instance can be found when a childComposableId
-     * is specified, a child is searched for using the resource id of the child.
+     * is specified, a child is searched for using the resource id of the child if one is provided.
      *
      * @return The child composable instance is returned if one exists, otherwise null is returned.
      */
     fun getChildComposableInstance(
         parentComposableInstance: ComposableInstance,
         childComposableId: String? = null,
-        childComposableResourceId: String
+        childComposableResourceId: String? = null
     ): ComposableInstance? {
 
         val parentComposable: ComposableInstance = if (parentComposableInstance.isRoot) {
@@ -493,7 +493,7 @@ open class ComposableResourceManager {
             dstComposable = parentComposable.composables.firstOrNull { it.id == childComposableId }
         }
 
-        if (dstComposable == null) {
+        if ((dstComposable == null) && (childComposableResourceId != null)) {
             // Check if a composable exists on the current screen that uses the destination composable resource.
             dstComposable = parentComposable.composables.firstOrNull { it.composableResId == childComposableResourceId }
         }
@@ -754,7 +754,7 @@ open class ComposableResourceManager {
     }
 
     private fun getComposableInstanceById(id: String, composables: List<ComposableInstance>): ComposableInstance? {
-        for (i in 0 until composables.lastIndex) {
+        for (i in 0..composables.lastIndex) {
             val rootComposable = composables[i]
 
             if (rootComposable.id == id) {
@@ -769,6 +769,27 @@ open class ComposableResourceManager {
         }
 
         return null
+    }
+
+    /**
+     * Returns the viewmodel of a child composable instance.
+     *
+     * @param parentId The id of the parent composable instance. The parent refers to the screen's root composable instance.
+     * @param childId The id of the child composable instance that the viewmodel is associated with.
+     */
+    fun getViewModelForChildComposableId(parentId: String, childId: String): ViewModel? {
+        val parentComposable = getComposableInstanceById(id = parentId)
+
+        if (parentComposable != null) {
+            val childComposable = getChildComposableInstance(
+                parentComposableInstance = parentComposable,
+                childComposableId = childId
+            )
+
+            return childComposable?.viewmodel
+        } else {
+            return null
+        }
     }
 
     /**

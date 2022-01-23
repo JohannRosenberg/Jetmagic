@@ -114,7 +114,7 @@ open class ComposableInstance(
     /**
      * Provides information about the deep link that was used to display the composable instance.
      */
-    var deepLink: DeepLink? = null
+    var deepLink: DeepLink? = null,
 )
 
 val LocalComposableInstance = staticCompositionLocalOf { ComposableInstance(id = "", composableResId = "") }

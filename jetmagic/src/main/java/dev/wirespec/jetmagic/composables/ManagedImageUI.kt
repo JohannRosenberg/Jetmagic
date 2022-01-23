@@ -39,6 +39,7 @@ fun ManagedImageHandler(
     painterFactory: @Composable (imagePath: String, animate: Boolean) -> ImagePainter,
 ) {
     val imageMan = (LocalComposableInstance.current.viewmodel as IImageManager).imageManager
+    imageMan.onImageUpdated.value
 
     val painter = imageMan.getPainter(id = id, imagePath = imagePath) { imageUrl, animate ->
         painterFactory(imagePath = imageUrl, animate = animate)

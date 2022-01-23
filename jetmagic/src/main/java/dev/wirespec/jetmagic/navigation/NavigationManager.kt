@@ -193,9 +193,11 @@ class NavigationManager {
             if (cacheComposable) {
                 navCache.add(composableInstance)
             }
+        } else {
+            composableInstance._onCloseScreen?.value = false
+            composableInstance.composables.forEach { it._onCloseScreen?.value = false }
         }
 
-        composableInstance._onCloseScreen?.value = false
         trash.clear()
         navStack.add(navStack.lastIndex, composableInstance)
         notifyScreenChangeWithLiveDataAndCallbacks(composableInstance)
@@ -404,6 +406,17 @@ class NavigationManager {
      */
     fun getComposableInstanceById(id: String): ComposableInstance {
         return findRootComposable(id = id)
+    }
+
+    /**
+     * Returns the composable instance for the current screen being displayed.
+     */
+    fun getCurrentScreenComposableInstance(): ComposableInstance? {
+        if (navStack.size < 2) {
+            return null
+        }
+
+        return navStack[navStack.lastIndex - 1]
     }
 
     /**

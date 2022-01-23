@@ -24,7 +24,7 @@ https://johannblake.medium.com/creating-responsive-layouts-using-jetpack-compose
 Add the following dependencies to your app's build.gradle file:
 
 ```
-implementation 'dev.wirespec.jetmagic:jetmagic:1.1.0'
+implementation 'dev.wirespec.jetmagic:jetmagic:1.2.0'
 implementation "androidx.compose.runtime:runtime-livedata:$compose_version"
 ```
 

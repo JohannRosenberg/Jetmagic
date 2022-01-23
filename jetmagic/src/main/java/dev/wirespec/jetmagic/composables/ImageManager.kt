@@ -1,6 +1,7 @@
 package dev.wirespec.jetmagic.composables
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.graphics.painter.Painter
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.ImagePainter
@@ -22,6 +23,11 @@ import dev.wirespec.jetmagic.models.ComposableInstance
 @ExperimentalCoilApi
 class ImageManager {
     private val states = mutableMapOf<String, ImageState>()
+    val onImageUpdated = mutableStateOf(0)
+
+    private fun updateImage() {
+        onImageUpdated.value = (0..1_000_000).random()
+    }
 
     /**
      * Performs any cleanup work when the composable instance that images are located on is terminated.
@@ -41,6 +47,19 @@ class ImageManager {
      */
     fun clearAllImageStates() {
         states.clear()
+    }
+
+    /**
+     * Clears the state for the specified image.
+     *
+     * @param The id of the image.
+     */
+    fun clearImageState(id: String) {
+        val imageState = states[id]
+
+        if (imageState != null) {
+            states.remove(id)
+        }
     }
 
     /**
@@ -109,6 +128,26 @@ class ImageManager {
     fun updateState(id: String, imagePath: String, animate: Boolean = false) {
         val state = states[id]
         state?.updateState(imagePath = imagePath, animate = animate)
+    }
+
+    /**
+     * Updates an image's path, causing the displayed image to recompose with the new image.
+     *
+     * @param id The id of the image.
+     * @param imagePath The new path for the image.
+     */
+    fun updateImagePath(id: String, imagePath: String) {
+        var state = states[id]
+
+        if (state == null) {
+            state = ImageState(imagePath = imagePath)
+            states[id] = state
+        } else {
+            state.imagePainter = null
+            state.imagePath = imagePath
+        }
+
+        updateImage()
     }
 }
 
