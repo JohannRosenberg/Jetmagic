@@ -2,6 +2,7 @@ package dev.wirespec.jetmagic
 
 import android.app.Activity
 import android.app.Application
+import android.content.Intent
 import android.os.Bundle
 import androidx.compose.animation.*
 import androidx.compose.animation.core.tween
@@ -33,6 +34,7 @@ import dev.wirespec.jetmagic.ui.screens.test.TestScreenHandler
 import dev.wirespec.jetmagic.ui.screens.test.TestViewModel
 import dev.wirespec.jetmagic.ui.screens.unknowndeeplink.UnknownDeepLinkHandler
 import dev.wirespec.jetmagic.ui.screens.unknowndeeplink.UnknownDeepLinkScreenHandler
+import java.util.*
 
 
 /**
@@ -238,12 +240,27 @@ class App : Application() {
     companion object {
         lateinit var context: App
         lateinit var mainViewModel: MainViewModel
+        var appLocale = "en"
     }
 
     // Returns the current activity.
     var currentActivity: Activity?
         get() = activityLifecycleTracker.currentActivity
         private set(value) {}
+
+    fun setAppLocale(language: String) {
+        appLocale = language
+
+        // IMPORTANT: Always call applyConfigChangesNow after making any config changes
+        // programmatically but before restarting the activity.
+        // NOTE: The language change doesn't actually take effect until
+        // the activity has been restarted. The app's language is
+        // set in onActivityResumed.
+
+        crm.applyConfigChangesNow()
+        val act = context.currentActivity as Activity
+        act.startActivity(Intent.makeRestartActivityTask(act.componentName))
+    }
 
     /**
      * Callbacks for handling the lifecycle of activities.
@@ -264,6 +281,8 @@ class App : Application() {
 
         override fun onActivityResumed(activity: Activity) {
             currentAct = activity
+            context.resources.configuration.setLocale(Locale(appLocale))
+            context.resources.updateConfiguration(context.resources.configuration, context.resources.displayMetrics)
         }
 
         override fun onActivityPaused(p0: Activity) {

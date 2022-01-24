@@ -72,6 +72,7 @@ open class ComposableResourceManager {
 
     private lateinit var ctx: Context
     private lateinit var cfg: Configuration
+    private var skipConfigChanges = false
 
     private val composableResources = mutableListOf<ComposableResource>()
     private val defaultComposableResources = mutableListOf<ComposableResource>()
@@ -97,6 +98,30 @@ open class ComposableResourceManager {
     }
 
     /**
+     * Applies configuration changes to take effect immediately but prevents the next
+     * configuration change from being executed. A typical use-case scenario for this
+     * is if your app allows the user to change the language of the app from within
+     * the app. After changing the language, the app should be restarted. But before
+     * restarting, applyConfigChangesNow should be called. This is because when an
+     * activity is restarted, in reality a new activity is started. The lifecycle of
+     * how Android handles terminating one activity while starting another one is
+     * not predictable. Typically however, the new activity will be started before the
+     * current activity has been destroyed. As a result, when the new activity starts,
+     * the CRM will be using the current state of screens from the previous activity,
+     * but then shortly afterwards when the previous activity is destroyed, the
+     * onConfigurationChanged function gets called and ends up destroying the
+     * state of the screens. This can result in the app crashing. To prevent this,
+     * calling applyConfigChangesNow after changing the language of the app but
+     * before restarting the activity will ensure that the new activity gets the
+     * latest config changes (which would include the updated language) while at the
+     * same time preventing the previous activity from destroying those changes.
+     */
+    fun applyConfigChangesNow() {
+        onConfigurationChanged()
+        skipConfigChanges = true
+    }
+
+    /**
      * Responds to device configuration changes.
      *
      * This should be called from the main activity's onDestroy function. When a configuration
@@ -119,6 +144,11 @@ open class ComposableResourceManager {
      *
      */
     fun onConfigurationChanged() {
+        if (skipConfigChanges) {
+            skipConfigChanges = false
+            return
+        }
+
         this.cfg = this.ctx.resources.configuration
 
         navMan.navStack.forEach { parentComposable ->
@@ -370,7 +400,12 @@ open class ComposableResourceManager {
     @Composable
     fun RenderComposable(composableInstance: ComposableInstance) {
         if (composableInstance.isTerminated) {
-            val composableResource = composableResources.first { it.id == composableInstance.selectedResourceId }
+            val composableResource =  if (composableInstance.selectedResourceId != null) {
+                composableResources.first { it.id == composableInstance.selectedResourceId }
+            } else {
+                selectComposableResource(composableResId = composableInstance.composableResId)
+            }
+
             composableResource.onRender(composableInstance)
         } else {
             RenderComposableInstance(parentComposableId = composableInstance.id)

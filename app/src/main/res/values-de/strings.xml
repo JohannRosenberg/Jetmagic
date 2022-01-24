@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="go_to_another_screen">Nach ein anderes Fenster gehen</string>
+    <string name="go_to_home_screen">Nach dem Startscreen gehen</string>
+    <string name="return_value_from_another_screen">Wert von anderes Fenster zurückgeben</string>
+    <string name="prompt_when_returning">Auffordern beim zurückkehren</string>
+    <string name="terminate_activity">Activity beenden</string>
+</resources>
