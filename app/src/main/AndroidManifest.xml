@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="dev.wirespec.jetmagic">
+    package="dev.wirespec.sample">
 
     <application
         android:name="dev.wirespec.jetmagic.App"
@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AdoptMe.NoActionBar">
         <activity
-            android:name=".ui.screens.MainActivity"
+            android:name="dev.wirespec.sample.ui.screens.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:launchMode="singleInstance"

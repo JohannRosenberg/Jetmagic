@@ -24,7 +24,7 @@ https://johannblake.medium.com/creating-responsive-layouts-using-jetpack-compose
 Add the following dependencies to your app's build.gradle file:
 
 ```
-implementation 'dev.wirespec.jetmagic:jetmagic:1.2.1'
+implementation 'dev.wirespec.jetmagic:jetmagic:1.2.2'
 implementation "androidx.compose.runtime:runtime-livedata:$compose_version"
 ```
 
@@ -441,7 +441,7 @@ crm.apply {
                 screenOrientation = ScreenOrientation.Landscape
             ) { composableInstance ->
                 // PetDetails in landscape mode.
-                dev.wirespec.jetmagic.ui.screens.petdetails.land.PetDetailsHandler(composableInstance)
+                dev.wirespec.sample.ui.screens.petdetails.land.PetDetailsHandler(composableInstance)
             },
             ComposableResource(
                 resourceId = ComposableResourceIDs.PetDetails,
@@ -449,7 +449,7 @@ crm.apply {
                 languageAndRegion = "de",
             ) { composableInstance ->
                 // PetDetails in German.
-                dev.wirespec.jetmagic.ui.screens.petdetails.de.PetDetailsHandler(composableInstance)
+                dev.wirespec.sample.ui.screens.petdetails.de.PetDetailsHandler(composableInstance)
             }
         )
     )
