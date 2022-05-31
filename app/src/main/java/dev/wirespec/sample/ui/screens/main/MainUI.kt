@@ -1,5 +1,6 @@
 package dev.wirespec.sample.ui.screens.main
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Scaffold
@@ -30,6 +31,7 @@ fun MainHandler(modifier: Modifier = Modifier) {
     Main(scaffoldState, drawerGesturesEnabled = drawerGesturesEnabled, modifier = modifier)
 }
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun Main(scaffoldState: ScaffoldState, drawerGesturesEnabled: Boolean, modifier: Modifier = Modifier) {
     Box {

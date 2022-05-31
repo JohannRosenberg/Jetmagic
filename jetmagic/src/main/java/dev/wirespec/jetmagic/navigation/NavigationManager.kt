@@ -28,6 +28,15 @@ class NavigationManager {
 
     lateinit var crm: ComposableResourceManager
     var activity: Activity? = null
+
+    /**
+     * A callback that can be set that will get called when the user is on the home screen and then hits the
+     * Back button. In your callback, you can do something like prompt the user if they want to exit the app.
+     * If the user wants to exit, then call exitApp. If onExitApp is not set, hitting the Back button while on
+     * the home screen will cause the app to exit.
+     */
+    var onExitApp: (() -> Unit)? = null
+
     internal var navStack = mutableListOf<ComposableInstance>()
 
     // This contains the list of composable resource Ids that are added in the order in which
@@ -314,12 +323,29 @@ class NavigationManager {
     }
 
     /**
+     * Exits the app. The navigation stack is cleared.
+     */
+    fun exitApp() {
+        if (navStack.size > 1) {
+            for (i in (navStack.lastIndex - 1) downTo 0) {
+                navStack.removeAt(i)
+            }
+        }
+
+        this.activity?.finish()
+        this.activity = null
+    }
+
+    /**
      * Navigates back to the previous screen immediately.
      *
      * No check is made to see if the current screen's [composable instance][ComposableInstance]
      * implements [onNavigateBack][dev.wirespec.jetmagic.navigation.NavigationManagerHelper.onNavigateBack] in its viewmodel
      * The current screen is removed from the navigation stack. If the current screen is the home screen, then hitting
-     * the Back button should cause the app to exit.
+     * the Back button should cause the app to exit. This can be overriden by setting the onExitApp variable to a callback
+     * If onExitApp is set, it will be called and the app will not exit. In your onExitApp callback, you can call exitApp
+     * if you want to exit the app. This is used in cases where you might want to do something like prompt the user and
+     * ask if they want to exit the app. If the user decides to exit the app, you would then call exitApp.
      */
     fun goBackImmediately(): Boolean {
         notifyCRMOnNavigationBackOrToHomeScreen()
@@ -327,9 +353,12 @@ class NavigationManager {
         trash.clear()
 
         if (navStack.size == 2) {
-            navStack.removeFirst()
-            this.activity?.finish()
-            this.activity = null
+            if (onExitApp != null) {
+                onExitApp?.invoke()
+                return true
+            }
+
+            exitApp()
             return false
         }
 
