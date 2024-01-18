@@ -9,7 +9,6 @@
 /.idea/assetWizardSettings.xml
 .DS_Store
 /build
-/mobilertc
 /captures
 .externalNativeBuild
 .cxx
@@ -19,5 +18,3 @@ jetmagic.keystore
 Sign-Jetmagic.txt
 jetmagic-public.pem
 jetmagic-public.keystore
-
-

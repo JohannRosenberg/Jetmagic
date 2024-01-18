@@ -1,0 +1,96 @@
+package io.github.johannrosenberg.sample.ui.screens.catselection
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import io.github.johannrosenberg.jetmagic.models.ComposableInstance
+import io.github.johannrosenberg.jetmagic.models.ComposableParams
+import io.github.johannrosenberg.jetmagic.navigation.navman
+import io.github.johannrosenberg.sample.ui.components.BasicRadioButton
+
+@Composable
+fun CatSelectionHandler(composableInstance: ComposableInstance) {
+
+    val p = composableInstance.parameters as ComposableParams?
+
+    CatSelection(
+        onSelection = { selectedBreed ->
+            p?.onReturn?.invoke(selectedBreed, false)
+            navman.goBack()
+        })
+}
+
+@Composable
+fun CatSelection(
+    modifier: Modifier = Modifier,
+    onSelection: (catBreedSelected: String) -> Unit
+) {
+    var selectedBreed by remember { mutableStateOf("Lion") }
+
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+        modifier = modifier
+            .padding(10.dp)
+            .fillMaxSize()
+            .background(MaterialTheme.colorScheme.surface)
+            .verticalScroll(rememberScrollState())
+    ) {
+        Column(modifier = modifier.padding(bottom = 30.dp)) {
+            BasicRadioButton(
+                id = "lion",
+                text = "Lion",
+                selected = selectedBreed == "Lion"
+            ) { id, text ->
+                selectedBreed = text
+            }
+
+            BasicRadioButton(
+                id = "jaguar",
+                text = "Jaguar",
+                selected = selectedBreed == "Jaguar"
+            ) { id, text ->
+                selectedBreed = text
+            }
+
+            BasicRadioButton(
+                id = "tiger",
+                text = "Tiger",
+                selected = selectedBreed == "Tiger"
+            ) { id, text ->
+                selectedBreed = text
+            }
+        }
+
+        Button(
+            modifier = modifier.padding(bottom = 10.dp),
+            //colors = AppColors.g AppTheme.getButtonColors(),
+            elevation = ButtonDefaults.buttonElevation(5.dp),
+            onClick = {
+                onSelection(selectedBreed)
+            }) {
+            Text(
+                text = "Return selection",
+                modifier = modifier.padding(start = 10.dp, top = 7.dp, end = 10.dp, bottom = 7.dp)
+            )
+        }
+    }
+}
+
+

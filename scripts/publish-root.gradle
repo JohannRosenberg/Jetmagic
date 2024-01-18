@@ -1,3 +1,12 @@
+ext["ossrhUsername"] = ''
+ext["ossrhPassword"] = ''
+ext["sonatypeStagingProfileId"] = ''
+ext["signing.keyId"] = ''
+ext["signing.key"] = ''
+ext["ossrhPassword"] = ''
+ext["signing.password"] = ''
+ext["signing.secretKeyRingFile"] = ''
+
 File secretPropsFile = project.rootProject.file('local.properties')
 if (secretPropsFile.exists()) {
     // Read local.properties file first if it exists
@@ -10,6 +19,7 @@ if (secretPropsFile.exists()) {
     ext["ossrhPassword"] = System.getenv('OSSRH_PASSWORD')
     ext["sonatypeStagingProfileId"] = System.getenv('SONATYPE_STAGING_PROFILE_ID')
     ext["signing.keyId"] = System.getenv('SIGNING_KEY_ID')
+    ext["signing.key"] = System.getenv('SIGNING_KEY')
     ext["signing.password"] = System.getenv('SIGNING_PASSWORD')
     ext["signing.secretKeyRingFile"] = System.getenv('SIGNING_SECRET_KEY_RING_FILE')
 }
@@ -26,3 +36,4 @@ nexusPublishing {
         }
     }
 }
+

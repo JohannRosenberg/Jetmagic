@@ -1,18 +1,23 @@
 plugins {
     id 'com.android.application'
-    id 'kotlin-android'
+    id 'org.jetbrains.kotlin.android'
 }
 
 android {
-    compileSdkVersion 33
-    buildToolsVersion "32.0.0"
+    namespace 'io.github.johannrosenberg.jetmagic'
+    compileSdk 34
 
     defaultConfig {
-        applicationId "dev.wirespec.sample"
-        minSdkVersion 21
-        targetSdkVersion 31
-        versionCode 7
-        versionName "1.4.0"
+        applicationId "io.github.johannrosenberg.jetmagic"
+        minSdk 25
+        targetSdk 34
+        versionCode 1
+        versionName "1.5.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
     }
 
     buildTypes {
@@ -22,45 +27,49 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = '11'
+        jvmTarget = '1.8'
     }
     buildFeatures {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion compose_compiler
-        kotlinCompilerVersion '1.7.20'
+        kotlinCompilerExtensionVersion '1.5.1'
     }
-    namespace 'dev.wirespec.sample'
+    packaging {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
 }
 
 dependencies {
 
     def lifecycle_version = '2.5.1'
-    def activity_version = "1.6.0"
     def retrofit_version = "2.9.0"
-    def paging_version = '3.1.1'
+    def paging_version = '3.2.1'
 
-    implementation 'androidx.core:core-ktx:1.9.0'
-    implementation 'androidx.appcompat:appcompat:1.5.1'
-    implementation 'com.google.android.material:material:1.8.0-alpha01'
-    implementation "androidx.activity:activity-ktx:$activity_version"
-    implementation "androidx.activity:activity-compose:$activity_version"
-    implementation "androidx.compose.ui:ui:$compose_version"
-    implementation "androidx.compose.material:material:$compose_version"
-    implementation "androidx.compose.material:material-icons-extended:$compose_version"
-    implementation "androidx.compose.ui:ui-tooling:$compose_version"
-    implementation "androidx.compose.runtime:runtime-livedata:$compose_version"
-    implementation "androidx.compose.foundation:foundation:$compose_version"
+
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.7.0'
+    implementation 'androidx.activity:activity-compose:1.8.2'
+    implementation platform('androidx.compose:compose-bom:2023.08.00')
+    implementation 'androidx.compose.ui:ui'
+    implementation 'androidx.compose.ui:ui-graphics'
+    implementation 'androidx.compose.ui:ui-tooling-preview'
+    implementation 'androidx.compose.material3:material3'
+    implementation "androidx.compose.material:material-icons-extended:1.5.4"
+    implementation "androidx.compose.material:material:1.5.4"
+    implementation "androidx.compose.runtime:runtime-livedata:1.5.4"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0'
     implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.2'
-    implementation project(':jetmagic')
+
+    implementation project(':Jetmagic')
 
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
@@ -70,9 +79,9 @@ dependencies {
 
     // Paging
     implementation "androidx.paging:paging-runtime:$paging_version"
-    implementation 'androidx.paging:paging-compose:1.0.0-alpha16'
+    implementation "androidx.paging:paging-compose:$paging_version"
 
     // Coil
-    implementation "io.coil-kt:coil-compose:1.4.0"
+    implementation "io.coil-kt:coil-compose:2.5.0"
     implementation "com.google.accompanist:accompanist-coil:0.15.0"
 }

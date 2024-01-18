@@ -1,8 +1,8 @@
 // Deep link to launch the pet details screen with the first pet whose name starts with "a"
-adb shell am start -W -a android.intent.action.VIEW -d "http://www.wirespec.dev/jetmagic/sample/pet_info?name=a" dev.wirespec.jetmagic
+adb shell am start -W -a android.intent.action.VIEW -d "http://github.com/johannrosenberg/jetmagic/sample/pet_info?name=a" io.github.johannrosenberg.jetmagic
 
 // Deep link to launch the deep link screens.
-adb shell am start -W -a android.intent.action.VIEW -d "http://www.wirespec.dev/jetmagic/sample/deeplink" dev.wirespec.jetmagic
+adb shell am start -W -a android.intent.action.VIEW -d "http://github.com/johannrosenberg/jetmagic/sample/deeplink" io.github.johannrosenberg.jetmagic
 
 // Deep link to launch the screen that shows an unknown url.
-adb shell am start -W -a android.intent.action.VIEW -d "http://www.wirespec.dev/jetmagic/sample/kittens" dev.wirespec.jetmagic
+adb shell am start -W -a android.intent.action.VIEW -d "http://github.com/johannrosenberg/jetmagic/sample/kittens" io.github.johannrosenberg.jetmagic

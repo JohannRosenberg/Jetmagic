@@ -1,0 +1,322 @@
+[
+  {
+    "id": 1,
+    "name": "Whiskers",
+    "birthdate": "05/12/2012",
+    "gender": "male",
+    "color": "brown",
+    "type": "Maine Coon",
+    "description": "Whiskers is a playful and friendly Maine Coon with a soft, brown fur coat. He was born on May 12, 2012, and his favorite activities include chasing laser pointers and taking long naps in sunny spots. Whiskers is known for his affectionate nature and is always ready for a good cuddle. With his striking appearance and charming personality, he quickly becomes the center of attention wherever he goes.",
+    "imageCount": 7
+  },
+  {
+    "id": 2,
+    "name": "Mittens",
+    "birthdate": "08/21/2011",
+    "gender": "female",
+    "color": "black",
+    "type": "Siamese",
+    "description": "Meet Mittens, a sleek and elegant Siamese cat with a glossy black coat. Born on August 21, 2011, Mittens is known for her graceful movements and striking blue eyes. She enjoys lounging on windowsills, soaking up the sun's warmth. Mittens is a quiet and observant feline companion, and her gentle purring provides comfort to those around her. With her mysterious charm and captivating beauty, Mittens steals the hearts of everyone she meets.",
+    "imageCount": 0
+  },
+  {
+    "id": 3,
+    "name": "Smokey",
+    "birthdate": "02/09/2014",
+    "gender": "male",
+    "color": "orange",
+    "type": "Persian",
+    "description": "Smokey, the charming Persian cat, was born on February 9, 2014. His vibrant orange fur and fluffy tail make him stand out in any crowd. Smokey is known for his calm and regal demeanor, often found lounging on luxurious cushions. Despite his aristocratic appearance, Smokey has a playful side, enjoying feather toys and interactive games. With his warm, golden eyes and gentle purring, Smokey is a delightful addition to any home.",
+    "imageCount": 0
+  },
+  {
+    "id": 4,
+    "name": "Felix",
+    "birthdate": "11/30/2013",
+    "gender": "male",
+    "color": "mixed",
+    "type": "Ragdoll",
+    "description": "Felix, the charming Ragdoll, was born on November 30, 2013. His mixed fur coat showcases a palette of colors, creating a unique and eye-catching appearance. Felix is a laid-back and affectionate feline friend, often seen sprawled out for belly rubs. He has a calm demeanor and gets along well with other pets. Felix's mesmerizing blue eyes and soft, semi-longhair coat make him a beloved companion in any household.",
+    "imageCount": 0
+  },
+  {
+    "id": 5,
+    "name": "Luna",
+    "birthdate": "07/14/2010",
+    "gender": "female",
+    "color": "brown",
+    "type": "Bengal",
+    "description": "Luna, the adventurous Bengal cat, was born on July 14, 2010. Her sleek, brown-spotted coat reflects her wild and energetic nature. Luna is known for her playful antics and acrobatic feats, often leaping to great heights to catch feather toys. Despite her lively spirit, Luna has a sweet and affectionate side, enjoying cuddles with her human companions. With her striking appearance and dynamic personality, Luna brings joy and excitement to any household.",
+    "imageCount": 0
+  },
+  {
+    "id": 6,
+    "name": "Charlie",
+    "birthdate": "05/12/2012",
+    "gender": "male",
+    "color": "brown",
+    "type": "Maine Coon",
+    "description": "Charlie is a playful and friendly Maine Coon with a soft, brown fur coat. He was born on May 12, 2012, and his favorite activities include chasing laser pointers and taking long naps in sunny spots. Charlie is known for his affectionate nature and is always ready for a good cuddle. With his striking appearance and charming personality, he quickly becomes the center of attention wherever he goes.",
+    "imageCount": 0
+  },
+  {
+    "id": 7,
+    "name": "Poppy",
+    "birthdate": "08/21/2011",
+    "gender": "female",
+    "color": "black",
+    "type": "Siamese",
+    "description": "Meet Poppy, a sleek and elegant Siamese cat with a glossy black coat. Born on August 21, 2011, Poppy is known for her graceful movements and striking blue eyes. She enjoys lounging on windowsills, soaking up the sun's warmth. Poppy is a quiet and observant feline companion, and her gentle purring provides comfort to those around her. With her mysterious charm and captivating beauty, Poppy steals the hearts of everyone she meets.",
+    "imageCount": 0
+  },
+  {
+    "id": 8,
+    "name": "Finley",
+    "birthdate": "02/09/2014",
+    "gender": "male",
+    "color": "orange",
+    "type": "Persian",
+    "description": "Finley, the charming Persian cat, was born on February 9, 2014. His vibrant orange fur and fluffy tail make him stand out in any crowd. Smokey is known for his calm and regal demeanor, often found lounging on luxurious cushions. Despite his aristocratic appearance, Smokey has a playful side, enjoying feather toys and interactive games. With his warm, golden eyes and gentle purring, Finley is a delightful addition to any home.",
+    "imageCount": 0
+  },
+  {
+    "id": 9,
+    "name": "Buddy",
+    "birthdate": "11/30/2013",
+    "gender": "male",
+    "color": "mixed",
+    "type": "Ragdoll",
+    "description": "Buddy, the charming Ragdoll, was born on November 30, 2013. His mixed fur coat showcases a palette of colors, creating a unique and eye-catching appearance. Buddy is a laid-back and affectionate feline friend, often seen sprawled out for belly rubs. He has a calm demeanor and gets along well with other pets. Felix's mesmerizing blue eyes and soft, semi-longhair coat make him a beloved companion in any household.",
+    "imageCount": 0
+  },
+  {
+    "id": 10,
+    "name": "Bella",
+    "birthdate": "07/14/2010",
+    "gender": "female",
+    "color": "brown",
+    "type": "Bengal",
+    "description": "Bella, the adventurous Bengal cat, was born on July 14, 2010. Her sleek, brown-spotted coat reflects her wild and energetic nature. Bella is known for her playful antics and acrobatic feats, often leaping to great heights to catch feather toys. Despite her lively spirit, Bella has a sweet and affectionate side, enjoying cuddles with her human companions. With her striking appearance and dynamic personality, Luna brings joy and excitement to any household.",
+    "imageCount": 0
+  },
+  {
+    "id": 11,
+    "name": "Ralph",
+    "birthdate": "09/18/2012",
+    "gender": "male",
+    "color": "black",
+    "type": "Scottish Fold",
+    "description": "Ralph, the dignified Scottish Fold, was born on September 18, 2012. With his distinct folded ears and sleek black coat, Ralph exudes an air of sophistication. He enjoys lounging on soft cushions and observing his surroundings with a watchful eye. Ralph is reserved but forms strong bonds with those who earn his trust. His calm demeanor and graceful movements make him a distinguished member of any household.",
+    "imageCount": 0
+  },
+  {
+    "id": 12,
+    "name": "Misty",
+    "birthdate": "04/25/2013",
+    "gender": "female",
+    "color": "orange",
+    "type": "American Shorthair",
+    "description": "Misty, the playful American Shorthair, was born on April 25, 2013. Her vibrant orange coat and expressive eyes make her a cheerful presence in any room. Misty is known for her love of interactive play and enjoys chasing feather toys and rolling balls. Despite her energetic nature, Misty has a gentle side and is fond of cuddling with her human companions. With her joyful spirit and friendly demeanor, Misty brings warmth and happiness to every home.",
+    "imageCount": 0
+  },
+  {
+    "id": 13,
+    "name": "Milo",
+    "birthdate": "12/12/2011",
+    "gender": "male",
+    "color": "brown",
+    "type": "Tabby",
+    "description": "Milo, the charming Tabby cat, was born on December 12, 2011. His distinctive striped coat and expressive eyes make him a beloved member of the household. Milo is known for his friendly and sociable nature, always ready to greet visitors with a purr and a nuzzle. He enjoys sunbathing by the window and curling up in cozy spots. With his endearing personality and handsome appearance, Milo brings joy and comfort to all who meet him.",
+    "imageCount": 0
+  },
+  {
+    "id": 14,
+    "name": "Molly",
+    "birthdate": "06/08/2014",
+    "gender": "female",
+    "color": "mixed",
+    "type": "Russian Blue",
+    "description": "Molly, the elegant Russian Blue, was born on June 8, 2014. Her plush, silver-blue coat and bright green eyes give her a regal appearance. Molly is known for her graceful movements and calm demeanor, often found perched on high vantage points. She enjoys quiet moments and is a gentle and affectionate companion. Mollys serene presence brings a sense of tranquility to any home, making her a cherished member of the family.",
+    "imageCount": 0
+  },
+  {
+    "id": 15,
+    "name": "George",
+    "birthdate": "03/21/2013",
+    "gender": "male",
+    "color": "orange",
+    "type": "Norwegian Forest",
+    "description": "George, the majestic Norwegian Forest cat, was born on March 21, 2013. With his fluffy orange coat and bushy tail, George embodies the beauty of the northern wilderness. George is known for his independent spirit and love of exploring his surroundings. Despite his adventurous nature, George has a soft spot for his human companions and enjoys lounging in their company. With his striking appearance and free-spirited personality, Leo adds a touch of the wild to any home.",
+    "imageCount": 0
+  },
+  {
+    "id": 16,
+    "name": "Tigger",
+    "birthdate": "05/12/2012",
+    "gender": "male",
+    "color": "brown",
+    "type": "Maine Coon",
+    "description": "Tigger is a playful and friendly Maine Coon with a soft, brown fur coat. He was born on May 12, 2012, and his favorite activities include chasing laser pointers and taking long naps in sunny spots. Tigger is known for his affectionate nature and is always ready for a good cuddle. With his striking appearance and charming personality, he quickly becomes the center of attention wherever he goes.",
+    "imageCount": 0
+  },
+  {
+    "id": 17,
+    "name": "Daisy",
+    "birthdate": "08/21/2011",
+    "gender": "female",
+    "color": "black",
+    "type": "Siamese",
+    "description": "Meet Daisy, a sleek and elegant Siamese cat with a glossy black coat. Born on August 21, 2011, Daisy is known for her graceful movements and striking blue eyes. She enjoys lounging on windowsills, soaking up the sun's warmth. Daisy is a quiet and observant feline companion, and her gentle purring provides comfort to those around her. With her mysterious charm and captivating beauty, Daisy steals the hearts of everyone she meets.",
+    "imageCount": 0
+  },
+  {
+    "id": 18,
+    "name": "Alfie",
+    "birthdate": "02/09/2014",
+    "gender": "male",
+    "color": "orange",
+    "type": "Persian",
+    "description": "Alfie, the charming Persian cat, was born on February 9, 2014. His vibrant orange fur and fluffy tail make him stand out in any crowd. Alfie is known for his calm and regal demeanor, often found lounging on luxurious cushions. Despite his aristocratic appearance, Alfie has a playful side, enjoying feather toys and interactive games. With his warm, golden eyes and gentle purring, Alfie is a delightful addition to any home.",
+    "imageCount": 0
+  },
+  {
+    "id": 19,
+    "name": "Jasper",
+    "birthdate": "11/30/2013",
+    "gender": "male",
+    "color": "mixed",
+    "type": "Ragdoll",
+    "description": "Jasper, the charming Ragdoll, was born on November 30, 2013. His mixed fur coat showcases a palette of colors, creating a unique and eye-catching appearance. Jasper is a laid-back and affectionate feline friend, often seen sprawled out for belly rubs. He has a calm demeanor and gets along well with other pets. Jasper's mesmerizing blue eyes and soft, semi-longhair coat make him a beloved companion in any household.",
+    "imageCount": 0
+  },
+  {
+    "id": 20,
+    "name": "Tilly",
+    "birthdate": "07/14/2010",
+    "gender": "female",
+    "color": "brown",
+    "type": "Bengal",
+    "description": "Tilly, the adventurous Bengal cat, was born on July 14, 2010. Her sleek, brown-spotted coat reflects her wild and energetic nature. Tilly is known for her playful antics and acrobatic feats, often leaping to great heights to catch feather toys. Despite her lively spirit, Tilly has a sweet and affectionate side, enjoying cuddles with her human companions. With her striking appearance and dynamic personality, Tilly brings joy and excitement to any household.",
+    "imageCount": 0
+  },
+  {
+    "id": 21,
+    "name": "Max",
+    "birthdate": "09/18/2012",
+    "gender": "male",
+    "color": "black",
+    "type": "Scottish Fold",
+    "description": "Max, the dignified Scottish Fold, was born on September 18, 2012. With his distinct folded ears and sleek black coat, Max exudes an air of sophistication. He enjoys lounging on soft cushions and observing his surroundings with a watchful eye. Max is reserved but forms strong bonds with those who earn his trust. His calm demeanor and graceful movements make him a distinguished member of any household.",
+    "imageCount": 0
+  },
+  {
+    "id": 22,
+    "name": "Willow",
+    "birthdate": "04/25/2013",
+    "gender": "female",
+    "color": "orange",
+    "type": "American Shorthair",
+    "description": "Willow, the playful American Shorthair, was born on April 25, 2013. Her vibrant orange coat and expressive eyes make her a cheerful presence in any room. Willow is known for her love of interactive play and enjoys chasing feather toys and rolling balls. Despite her energetic nature, Willow has a gentle side and is fond of cuddling with her human companions. With her joyful spirit and friendly demeanor, Willow brings warmth and happiness to every home.",
+    "imageCount": 0
+  },
+  {
+    "id": 23,
+    "name": "Simba",
+    "birthdate": "12/12/2011",
+    "gender": "male",
+    "color": "brown",
+    "type": "Tabby",
+    "description": "Simba, the charming Tabby cat, was born on December 12, 2011. His distinctive striped coat and expressive eyes make him a beloved member of the household. Simba is known for his friendly and sociable nature, always ready to greet visitors with a purr and a nuzzle. He enjoys sunbathing by the window and curling up in cozy spots. With his endearing personality and handsome appearance, Simba brings joy and comfort to all who meet him.",
+    "imageCount": 0
+  },
+  {
+    "id": 24,
+    "name": "Coco",
+    "birthdate": "06/08/2014",
+    "gender": "female",
+    "color": "mixed",
+    "type": "Russian Blue",
+    "description": "Coco, the elegant Russian Blue, was born on June 8, 2014. Her plush, silver-blue coat and bright green eyes give her a regal appearance. Coco is known for her graceful movements and calm demeanor, often found perched on high vantage points. She enjoys quiet moments and is a gentle and affectionate companion. Coco's serene presence brings a sense of tranquility to any home, making her a cherished member of the family.",
+    "imageCount": 0
+  },
+  {
+    "id": 25,
+    "name": "Casper",
+    "birthdate": "03/21/2013",
+    "gender": "male",
+    "color": "orange",
+    "type": "Norwegian Forest",
+    "description": "Casper, the majestic Norwegian Forest cat, was born on March 21, 2013. With his fluffy orange coat and bushy tail, Casper embodies the beauty of the northern wilderness. Casper is known for his independent spirit and love of exploring his surroundings. Despite his adventurous nature, Casper has a soft spot for his human companions and enjoys lounging in their company. With his striking appearance and free-spirited personality, Casper adds a touch of the wild to any home.",
+    "imageCount": 0
+  },
+  {
+    "id": 26,
+    "name": "Betty",
+    "birthdate": "03/08/2013",
+    "gender": "female",
+    "color": "mixed",
+    "type": "Siberian",
+    "description": "Betty is an elegant Siberian cat with a mixed fur coat, born on March 8, 2013. She possesses a graceful demeanor and enjoys lounging in cozy corners. Betty has a mysterious air about her, and her striking appearance often captivates those around her. Despite her calm exterior, Betty loves interactive play and chasing feather toys. With her captivating gaze and gentle purring, Betty is a delightful addition to any feline-loving household.",
+    "imageCount": 0
+  },
+  {
+    "id": 27,
+    "name": "Tommy",
+    "birthdate": "09/16/2012",
+    "gender": "male",
+    "color": "orange",
+    "type": "Abyssinian",
+    "description": "Tommy, the regal Abyssinian cat, was born on September 16, 2012. His sleek, orange coat and distinctive ticking give him a majestic appearance. Tommy is known for his playful nature and loves climbing to high places for a better view. He enjoys interactive toys and is always ready for a game of chase. Tommy's bold personality and warm, golden eyes make him a cherished member of any household.",
+    "imageCount": 0
+  },
+  {
+    "id": 28,
+    "name": "Missy",
+    "birthdate": "05/25/2011",
+    "gender": "female",
+    "color": "brown",
+    "type": "Birman",
+    "description": "Missy, the enchanting Birman cat, was born on May 25, 2011. Her silky, brown coat and striking blue eyes make her a captivating presence. Missy is known for her gentle and affectionate demeanor, often seeking out cuddles and chin scratches. She enjoys basking in the sun and watching the world go by from her favorite perch. With her serene disposition and elegant charm, Missy brings joy and tranquility to any home.",
+    "imageCount": 0
+  },
+  {
+    "id": 29,
+    "name": "Gizmo",
+    "birthdate": "02/14/2014",
+    "gender": "male",
+    "color": "black",
+    "type": "Bombay",
+    "description": "Gizmo, the sleek Bombay cat, was born on February 14, 2014. With his glossy black coat and golden eyes, Gizmo exudes a sense of mystery. Despite his dark appearance, Gizmo is a friendly and sociable feline companion, always ready for a game of fetch or a cozy nap on the couch. He has a playful spirit and enjoys interactive toys that stimulate his agile nature. Gizmo's captivating presence adds a touch of elegance to any household.",
+    "imageCount": 0
+  },
+  {
+    "id": 30,
+    "name": "Sophie",
+    "birthdate": "11/03/2013",
+    "gender": "female",
+    "color": "mixed",
+    "type": "Himalayan",
+    "description": "Sophie, the graceful Himalayan cat, was born on November 3, 2013. Her luxurious, mixed fur coat and stunning blue eyes make her a true beauty. Sophie is known for her calm and regal demeanor, often found perched on soft cushions. She enjoys quiet moments of reflection and is a loving and gentle companion. Sophie's serene presence brings a sense of peace to any home, making her a cherished member of the family.",
+    "imageCount": 0
+  },
+  {
+    "id": 31,
+    "name": "Harry",
+    "birthdate": "07/08/2010",
+    "gender": "male",
+    "color": "brown",
+    "type": "Manx",
+    "description": "Harry, the adventurous Manx cat, was born on July 8, 2010. With his distinctive tailless silhouette and plush brown coat, Harry stands out in any crowd. Harry is known for his bold and outgoing personality, always ready for a new exploration or a game of hide-and-seek. Despite his active nature, Harry has a sweet side and enjoys curling up in cozy spots for a well-deserved nap. Harry's dynamic presence adds excitement to any household.",
+    "imageCount": 0
+  },
+  {
+    "id": 32,
+    "name": "Oliver",
+    "birthdate": "07/08/2010",
+    "gender": "male",
+    "color": "brown",
+    "type": "Manx",
+    "description": "Oliver, the adventurous Manx cat, was born on July 8, 2010. With his distinctive tailless silhouette and plush brown coat, Oliver stands out in any crowd. Oliver is known for his bold and outgoing personality, always ready for a new exploration or a game of hide-and-seek. Despite his active nature, Oliver has a sweet side and enjoys curling up in cozy spots for a well-deserved nap. Oliver's dynamic presence adds excitement to any household.",
+    "imageCount": 0
+  }
+]
