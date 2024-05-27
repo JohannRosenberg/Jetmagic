@@ -75,10 +75,12 @@ fun ScreenFactory(
 
         composableResource.onAnimateVisibility?.invoke(composableInstance)
     } else {
+        val duration = if (crm.useDefaultAnimation) 500 else 0
+
         AnimatedVisibility(
             visible = visible,
-            enter = slideInHorizontally(initialOffsetX = { it }, animationSpec = tween(500)),
-            exit = slideOutHorizontally(targetOffsetX = { it }, animationSpec = tween(500))
+            enter = slideInHorizontally(initialOffsetX = { it }, animationSpec = tween(duration)),
+            exit = slideOutHorizontally(targetOffsetX = { it }, animationSpec = tween(duration))
         ) {
             if (composableInstance.id.isNotEmpty()) {
                 crm.RenderComposable(composableInstance = composableInstance)

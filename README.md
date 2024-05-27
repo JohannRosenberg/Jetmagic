@@ -24,7 +24,7 @@ https://johannblake.medium.com/creating-responsive-layouts-using-jetpack-compose
 Add the following dependencies to your app's build.gradle file:
 
 ```
-implementation 'io.github.johannrosenberg:jetmagic:1.5.0'
+implementation 'io.github.johannrosenberg:jetmagic:1.5.1'
 ```
 
 <br />

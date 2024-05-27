@@ -3,7 +3,43 @@ package io.github.johannrosenberg.jetmagic.composables
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.Configuration
-import android.content.res.Configuration.*
+import android.content.res.Configuration.COLOR_MODE_HDR_NO
+import android.content.res.Configuration.COLOR_MODE_HDR_YES
+import android.content.res.Configuration.COLOR_MODE_WIDE_COLOR_GAMUT_NO
+import android.content.res.Configuration.COLOR_MODE_WIDE_COLOR_GAMUT_YES
+import android.content.res.Configuration.KEYBOARDHIDDEN_NO
+import android.content.res.Configuration.KEYBOARDHIDDEN_YES
+import android.content.res.Configuration.KEYBOARD_12KEY
+import android.content.res.Configuration.KEYBOARD_NOKEYS
+import android.content.res.Configuration.KEYBOARD_QWERTY
+import android.content.res.Configuration.NAVIGATIONHIDDEN_NO
+import android.content.res.Configuration.NAVIGATIONHIDDEN_YES
+import android.content.res.Configuration.NAVIGATION_DPAD
+import android.content.res.Configuration.NAVIGATION_NONAV
+import android.content.res.Configuration.NAVIGATION_TRACKBALL
+import android.content.res.Configuration.NAVIGATION_WHEEL
+import android.content.res.Configuration.ORIENTATION_LANDSCAPE
+import android.content.res.Configuration.ORIENTATION_PORTRAIT
+import android.content.res.Configuration.SCREENLAYOUT_LAYOUTDIR_LTR
+import android.content.res.Configuration.SCREENLAYOUT_LAYOUTDIR_RTL
+import android.content.res.Configuration.SCREENLAYOUT_LONG_NO
+import android.content.res.Configuration.SCREENLAYOUT_LONG_YES
+import android.content.res.Configuration.SCREENLAYOUT_ROUND_NO
+import android.content.res.Configuration.SCREENLAYOUT_ROUND_YES
+import android.content.res.Configuration.SCREENLAYOUT_SIZE_LARGE
+import android.content.res.Configuration.SCREENLAYOUT_SIZE_NORMAL
+import android.content.res.Configuration.SCREENLAYOUT_SIZE_SMALL
+import android.content.res.Configuration.SCREENLAYOUT_SIZE_XLARGE
+import android.content.res.Configuration.TOUCHSCREEN_FINGER
+import android.content.res.Configuration.TOUCHSCREEN_NOTOUCH
+import android.content.res.Configuration.UI_MODE_NIGHT_NO
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
+import android.content.res.Configuration.UI_MODE_TYPE_APPLIANCE
+import android.content.res.Configuration.UI_MODE_TYPE_CAR
+import android.content.res.Configuration.UI_MODE_TYPE_DESK
+import android.content.res.Configuration.UI_MODE_TYPE_TELEVISION
+import android.content.res.Configuration.UI_MODE_TYPE_VR_HEADSET
+import android.content.res.Configuration.UI_MODE_TYPE_WATCH
 import android.os.Build
 import androidx.compose.runtime.Composable
 import androidx.lifecycle.LiveData
@@ -14,7 +50,7 @@ import io.github.johannrosenberg.jetmagic.models.ComposableResource
 import io.github.johannrosenberg.jetmagic.models.DeepLink
 import io.github.johannrosenberg.jetmagic.navigation.NavigationManager
 import io.github.johannrosenberg.jetmagic.utils.ScreenUtils
-import java.util.*
+import java.util.Locale
 
 
 /**
@@ -69,6 +105,14 @@ import java.util.*
 open class ComposableResourceManager {
 
     lateinit var navMan: NavigationManager
+
+    /**
+     * Determines whether the default animation is used on composables when no custom animation is provided.
+     * The default is set to true and will cause screens to be animated in horizontally from the left and
+     * transitioned back to the right when the screen exits. If set to false, the screen will appear without
+     * any animation.
+     */
+    var useDefaultAnimation = true
 
     private lateinit var ctx: Context
     private lateinit var cfg: Configuration
